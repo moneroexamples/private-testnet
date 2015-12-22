@@ -1,4 +1,4 @@
-# Setting private monero testnet network
+# Setting private Monero testnet network
 
 Having private [Monero](https://getmonero.org/) testnet network can be very useful, as you can play around
 with the monero without risking making expensive mistakes on real network. However,
