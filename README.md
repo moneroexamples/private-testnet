@@ -1,13 +1,20 @@
 # Setting private monero testnet
 
-How to set private [Monero](https://getmonero.org/) testnet on Xubuntu 15.10 x64.
+Having private [Monero](https://getmonero.org/) testnet network can be very useful, as you can play around
+with the monero without risking making expensive mistakes on real network. However,
+it is not clear how to set up a private testnet network. In this example, this
+is demonstrated.
 
-The testnet will include 3 nodes, each with its own blockchain and corresponding wallet on a single computer.
+The example is executed on Xubuntu 15.10 x64 using current (as of Dec 2015)
+github version of Monero. Not sure if this will work with official, stable version
+from 2014.  How to compile latest monero is shown here:
+[compile-monero-ubuntu-1510](http://moneroexamples.github.io/compile-monero-ubuntu-1510/).
 
-This is very useful for testing and playing around with Monero.
 
+The testnet monero network will include 3 nodes, each with its own blockchain database
+and corresponding wallet on a single computer. The three testnet nodes will be listening
+at the following three ports: 28080, 38080 and 48080.
 
-The three testnet nodes will be listening at the following three ports: 28080, 38080 and 48080.
 
 The example is based on the following reddit posts:
  - [How do I make my own testnet network, with e.g. two private nodes and private blockchain?](https://www.reddit.com/r/Monero/comments/3x5qwo/how_do_i_make_my_own_testnet_network_with_eg_two/)
@@ -81,7 +88,8 @@ The node will listen for connections at port 48080 and connect to the two other 
 
 ## Step 5: Start mining.
 
-How you mine is up to you know. You can mine only for the first wallet, and keep other two empty for now, or mine in two nodes, or all three.
+How you mine is up to you know. You can mine only for the first wallet, and keep other two empty for now,
+or mine in two nodes, or all three of them.
 
 For example, to mine in two first nodes to the respective wallets, the following commands can be used:
 
@@ -126,7 +134,8 @@ After mining first few blocks:
 
 ## Making transfers
 
-Mined blocked require confirmation of 60 blocks. So before you can make any transfers between the wallets, need to mine at least 60 blocks. Until then, the wallets will have `unlocked_balance` equal to 0
+Mined blocked require confirmation of 60 blocks. So before you can make any transfers between the wallets, need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between
+wallets to be unlocked it takes 6 blocks.
 
 
 ## How can you help?
