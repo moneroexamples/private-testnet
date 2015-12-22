@@ -116,11 +116,11 @@ wallet_03:
 ## Example screenshots
 
 Before starting mining:
-![Before](https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run.jpg)
+![Before](https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_setup.jpg)
 
 After mining first few blocks:
 
-![After](https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_setup.jpg)
+![After](https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run.jpg)
 
 
 
