@@ -88,18 +88,27 @@ The node will listen for connections at port 48080 and connect to the two other 
 How you mine is up to you know. You can mine only for the first wallet, and keep other two empty for now,
 or mine in two nodes, or all three of them.
 
-For example, to mine in two first nodes to the respective wallets, the following commands can be used:
+For example, to mine in two first wallets, the following commands can be used:
 
 
-node_01:
+in node_01 (mining to the first wallet):
 ```
 start_mining  9vcyth7idHcfGVripDeUJwQgjqyPYRbh2CMP9JudycTZGgot7tCp2o9aAsY9nUs9hLfoV3KQv59tE1hpZSpgTJXD9zVMHso 1
 ```
 
-node_02:
+in node_02 (mining to the second wallet):
 ```
 start_mining  9uKAVnkfhE9Ww8ZZ9nA8JYYeeXD4f1XgLbHtsoQ3fBKf8QPgv1jyrn5Xc5DHKm8epwWLhrFJnH2w712N9Tk8yRxpGqJgN4C 1
 ```
+
+in node_03 (mining to the first wallet):
+```
+start_mining  9vcyth7idHcfGVripDeUJwQgjqyPYRbh2CMP9JudycTZGgot7tCp2o9aAsY9nUs9hLfoV3KQv59tE1hpZSpgTJXD9zVMHso 1
+```
+
+As can be seen, both node_01 and node_03 mine to the first wallet. The third wallet
+is not used for mining in this example. The reason is that it will receive xmr,
+through transfers, from the remaining wallets.
 
 ## Step 6: Start the wallets
 
