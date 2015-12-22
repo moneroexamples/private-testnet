@@ -127,6 +127,13 @@ wallet_03:
 /opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin
 ```
 
+## Making transfers
+
+Mined blocked require confirmation of 60 blocks. So before you can make any transfers between the wallets, need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between
+wallets to be unlocked it takes 6 blocks.
+
+
+
 ## Example screenshots
 
 **Commands used to start the nodes and wallets:**
@@ -146,13 +153,6 @@ to unlock the mined xmr, we need to mine at least 60 blocks.
 **After mining first 60 blocks:**
 ![After60](https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run_60.jpg)
 After mining 60 blocks, the `unlocked balance` is no longer zero.
-
-
-
-## Making transfers
-
-Mined blocked require confirmation of 60 blocks. So before you can make any transfers between the wallets, need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between
-wallets to be unlocked it takes 6 blocks.
 
 
 ## How can you help?
