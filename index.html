@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Monero Examples by moneroexamples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Monero Examples</h1>
+      <h2 class="project-tagline">private-testnet</h2>
+      <a href="https://github.com/moneroexamples/private-testnet" class="btn">View on GitHub</a>
+      <a href="https://github.com/moneroexamples/private-testnet/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/moneroexamples/private-testnet/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="setting-private-monero-testnet" class="anchor" href="#setting-private-monero-testnet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting private monero testnet</h1>
+
+<p>Having private <a href="https://getmonero.org/">Monero</a> testnet network can be very useful, as you can play around
+with the monero without risking making expensive mistakes on real network. However,
+it is not clear how to set up a private testnet network. In this example, this
+is demonstrated.</p>
+
+<p>The example is executed on Xubuntu 15.10 x64 using current (as of Dec 2015)
+github version of Monero. Not sure if this will work with official, stable version
+from 2014.  How to compile latest monero is shown here:
+<a href="http://moneroexamples.github.io/compile-monero-ubuntu-1510/">compile-monero-ubuntu-1510</a>.</p>
+
+<p>The testnet monero network will include 3 nodes, each with its own blockchain database
+and corresponding wallet on a single computer. The three testnet nodes will be listening
+at the following three ports: 28080, 38080 and 48080.</p>
+
+<p>The example is based on the following reddit posts:</p>
+
+<ul>
+<li><a href="https://www.reddit.com/r/Monero/comments/3x5qwo/how_do_i_make_my_own_testnet_network_with_eg_two/">How do I make my own testnet network, with e.g. two private nodes and private blockchain?</a></li>
+<li><a href="https://www.reddit.com/r/Monero/comments/3xj9vp/does_unlocking_balance_in_testnet_mode_differers/">Does unlocking balance in testnet mode differers from the normal mode?</a></li>
+</ul>
+
+<h2>
+<a id="step-1-create-testnet-wallets" class="anchor" href="#step-1-create-testnet-wallets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 1: Create testnet wallets.</h2>
+
+<p>Each of the nodes will have corresponding wallet. Thus we create them first. I assume that the wallets will be called <code>wallet_01.bin</code>,
+<code>wallet_02.bin</code> and <code>wallet_03.bin</code>. Also, I assume the wallets will be located in <code>~/testnet</code> folder.</p>
+
+<p>To create a testnet wallet use the following command, and follow the prompts to make the wallet.</p>
+
+<p>create the <code>~/testnet</code> and go into it:</p>
+
+<div class="highlight highlight-source-shell"><pre>mkdir <span class="pl-k">~</span>/testnet <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> <span class="pl-k">~</span>/testnet</pre></div>
+
+<p>Execute the following command three times, one for each wallet name, and follow the prompts to actually make the wallet and obtain its address.</p>
+
+<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/simplewallet --testnet</pre></div>
+
+<p>In this example, the addresses obtained were:</p>
+
+<p>wallet_01.bin:</p>
+
+<pre><code>9vcyth7idHcfGVripDeUJwQgjqyPYRbh2CMP9JudycTZGgot7tCp2o9aAsY9nUs9hLfoV3KQv59tE1hpZSpgTJXD9zVMHso
+</code></pre>
+
+<p>wallet_02.bin:</p>
+
+<pre><code>9uKAVnkfhE9Ww8ZZ9nA8JYYeeXD4f1XgLbHtsoQ3fBKf8QPgv1jyrn5Xc5DHKm8epwWLhrFJnH2w712N9Tk8yRxpGqJgN4C
+</code></pre>
+
+<p>wallet_03.bin:</p>
+
+<pre><code>9utaupAkugX7YEuGKL5LPeKD1TQHBYE7edEZXkEuFLirVNzcdf53WHWS3nUieF3vHeShTk6SqU5eSCce5W56mdcZHW67Cs3
+</code></pre>
+
+<p>Exit from the wallets before proceedings. We need only address for now.
+The <code>simplewallet</code> may crash as the blockchains are empty at this stage.
+We need to do mine something, before the wallets can be used.</p>
+
+<h2>
+<a id="step-2-start-first-node" class="anchor" href="#step-2-start-first-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 2: Start first node.</h2>
+
+<p>The node will listen for connections at port 28080 and connect to the two other nodes, i.e., those on ports 38080 and 48080. It will store its blockchain in <code>~/testnet/node_01</code>.</p>
+
+<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir <span class="pl-k">~</span>/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080</pre></div>
+
+<h2>
+<a id="step-3-start-second-node" class="anchor" href="#step-3-start-second-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3: Start second node.</h2>
+
+<p>The node will listen for connections at port 38080 and connect to the two other nodes, i.e., those on ports 28080 and 48080. It will store its blockchain in <code>~/testnet/node_02</code>.</p>
+
+<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 38080 --testnet-rpc-bind-port 38081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir <span class="pl-k">~</span>/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080</pre></div>
+
+<h2>
+<a id="step-4-start-third-node" class="anchor" href="#step-4-start-third-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4: Start third node.</h2>
+
+<p>The node will listen for connections at port 48080 and connect to the two other nodes, i.e., those on ports 28080 and 38080. It will store its blockchain in <code>~/testnet/node_03</code>.</p>
+
+<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 48080 --testnet-rpc-bind-port 48081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir <span class="pl-k">~</span>/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080</pre></div>
+
+<h2>
+<a id="step-5-start-mining" class="anchor" href="#step-5-start-mining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5: Start mining.</h2>
+
+<p>How you mine is up to you know. You can mine only for the first wallet, and keep other two empty for now,
+or mine in two nodes, or all three of them.</p>
+
+<p>For example, to mine in two first nodes to the respective wallets, the following commands can be used:</p>
+
+<p>node_01:</p>
+
+<pre><code>start_mining  9vcyth7idHcfGVripDeUJwQgjqyPYRbh2CMP9JudycTZGgot7tCp2o9aAsY9nUs9hLfoV3KQv59tE1hpZSpgTJXD9zVMHso 1
+</code></pre>
+
+<p>node_02:</p>
+
+<pre><code>start_mining  9uKAVnkfhE9Ww8ZZ9nA8JYYeeXD4f1XgLbHtsoQ3fBKf8QPgv1jyrn5Xc5DHKm8epwWLhrFJnH2w712N9Tk8yRxpGqJgN4C 1
+</code></pre>
+
+<h2>
+<a id="step-6-start-the-wallets" class="anchor" href="#step-6-start-the-wallets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6: Start the wallets.</h2>
+
+<p>wallet_01:</p>
+
+<pre><code>/opt/bitmonero/simplewallet --testnet --trusted-daemon --wallet-file ~/testnet/wallet_01.bin
+</code></pre>
+
+<p>wallet_02:</p>
+
+<pre><code>/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --wallet-file ~/testnet/wallet_02.bin
+</code></pre>
+
+<p>wallet_03:</p>
+
+<pre><code>/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin
+</code></pre>
+
+<h2>
+<a id="example-screenshots" class="anchor" href="#example-screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example screenshots</h2>
+
+<p>Before starting mining:
+<img src="https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_setup.jpg" alt="Before"></p>
+
+<p>After mining first few blocks:</p>
+
+<p><img src="https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run.jpg" alt="After"></p>
+
+<h2>
+<a id="making-transfers" class="anchor" href="#making-transfers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making transfers</h2>
+
+<p>Mined blocked require confirmation of 60 blocks. So before you can make any transfers between the wallets, need to mine at least 60 blocks. Until then, the wallets will have <code>unlocked balance</code> equal to 0. In contrast, for regular transfers between
+wallets to be unlocked it takes 6 blocks.</p>
+
+<h2>
+<a id="how-can-you-help" class="anchor" href="#how-can-you-help" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can you help?</h2>
+
+<p>Constructive criticism, code and website edits are always good. They can be made through github.</p>
+
+<p>Some Monero are also welcome:</p>
+
+<pre><code>48daf1rG3hE1Txapcsxh6WXNe9MLNKtu7W7tKTivtSoVLHErYzvdcpea2nSTgGkz66RFP4GKVAsTV14v6G3oddBTHfxP6tU
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/moneroexamples/private-testnet">Monero Examples</a> is maintained by <a href="https://github.com/moneroexamples">moneroexamples</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
