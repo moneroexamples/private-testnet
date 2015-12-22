@@ -40,7 +40,12 @@ at the following three ports: 28080, 38080 and 48080.</p>
 
 <ul>
 <li><a href="https://www.reddit.com/r/Monero/comments/3x5qwo/how_do_i_make_my_own_testnet_network_with_eg_two/">How do I make my own testnet network, with e.g. two private nodes and private blockchain?</a></li>
-<li><a href="https://www.reddit.com/r/Monero/comments/3xj9vp/does_unlocking_balance_in_testnet_mode_differers/">Does unlocking balance in testnet mode differers from the normal mode?</a></li>
+<li>
+<p><a href="https://www.reddit.com/r/Monero/comments/3xj9vp/does_unlocking_balance_in_testnet_mode_differers/">Does unlocking balance in testnet mode differers from the normal mode?</a></p>
+
+<p>Also much thanks go to reddit's user <a href="https://www.reddit.com/user/o--sensei">o--sensei</a> for
+help with setting up the initial testnet network.</p>
+</li>
 </ul>
 
 <h2>
@@ -174,6 +179,42 @@ through transfers, from the remaining wallets.</p>
 
 <pre><code>/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin
 </code></pre>
+
+<h2>
+<a id="testnet-folder-structure" class="anchor" href="#testnet-folder-structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testnet folder structure</h2>
+
+<p>The resulting <code>~/testnet</code> folder structure should be as follows:</p>
+
+<div class="highlight highlight-source-shell"><pre>/home/mwo/testnet/
+├── node_01
+│   ├── bitmonero.log
+│   ├── lmdb
+│   │   ├── data.mdb
+│   │   └── lock.mdb
+│   └── p2pstate.bin
+├── node_02
+│   ├── bitmonero.log
+│   ├── lmdb
+│   │   ├── data.mdb
+│   │   └── lock.mdb
+│   └── p2pstate.bin
+├── node_03
+│   ├── bitmonero.log
+│   ├── lmdb
+│   │   ├── data.mdb
+│   │   └── lock.mdb
+│   └── p2pstate.bin
+├── wallet_01.bin
+├── wallet_01.bin.address.txt
+├── wallet_01.bin.keys
+├── wallet_02.bin
+├── wallet_02.bin.address.txt
+├── wallet_02.bin.keys
+├── wallet_03.bin
+├── wallet_03.bin.address.txt
+└── wallet_03.bin.keys
+
+6 directories, 21 files</pre></div>
 
 <h2>
 <a id="making-transfers" class="anchor" href="#making-transfers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making transfers</h2>
