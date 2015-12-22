@@ -20,7 +20,7 @@ The example is based on the following reddit posts:
  - [How do I make my own testnet network, with e.g. two private nodes and private blockchain?](https://www.reddit.com/r/Monero/comments/3x5qwo/how_do_i_make_my_own_testnet_network_with_eg_two/)
  - [Does unlocking balance in testnet mode differers from the normal mode?](https://www.reddit.com/r/Monero/comments/3xj9vp/does_unlocking_balance_in_testnet_mode_differers/)
 
- Also much thanks go to reddit's user [o--sensei](https://www.reddit.com/user/o--sensei) for
+Also much thanks go to reddit's user [o--sensei](https://www.reddit.com/user/o--sensei) for
   help with setting up the initial testnet network.
 
 ## Step 1: Create testnet wallets
