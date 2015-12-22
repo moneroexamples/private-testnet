@@ -66,14 +66,30 @@ The node will listen for connections at port 28080 and connect to the two other 
 /opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir ~/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080
 ```
 
+The `bitmonerod` options are:
+
+ - *testnet*   - Run on testnet. The wallet must be launched with --testnet flag.
+ - *no-igd*    - Disable UPnP port mapping.
+ - *hide-my-port* - Do not announce yourself as peerlist candidate.
+ - *testnet-data-dir* - Specify testnet data directory.
+ - *p2p-bind-ip* - Interface for p2p network protocol.
+ - *log-level*  - Log level.
+ - *add-exclusive-node* - Specify list of peers to connect to  only. If this option is given the options add-priority-node and seed-node are ignored.
+
 ## Step 3: Start second node
 
 The node will listen for connections at port 38080 and connect to the two other nodes, i.e., those on ports 28080 and 48080. It will store its blockchain in `~/testnet/node_02`.
 
-
 ```bash
 /opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 38080 --testnet-rpc-bind-port 38081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir ~/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080
 ```
+
+Additional `bitmonerod` options are:
+
+ - *testnet-p2p-bind-port* - Port for testnet p2p network protocol.
+ - *testnet-rpc-bind-port* - Port for testnet RPC server.    
+
+
 ## Step 4: Start third node
 
 The node will listen for connections at port 48080 and connect to the two other nodes, i.e., those on ports 28080 and 38080. It will store its blockchain in `~/testnet/node_03`.
@@ -82,6 +98,8 @@ The node will listen for connections at port 48080 and connect to the two other 
 ```bash
 /opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 48080 --testnet-rpc-bind-port 48081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir ~/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080
 ```
+
+`bitmonerod` options as before, but with different ports.
 
 ## Step 5: Start mining
 
