@@ -145,12 +145,47 @@ wallet_03:
 /opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin
 ```
 
+
+## Testnet folder structure
+
+
+```bash
+/home/mwo/testnet/
+├── node_01
+│   ├── bitmonero.log
+│   ├── lmdb
+│   │   ├── data.mdb
+│   │   └── lock.mdb
+│   └── p2pstate.bin
+├── node_02
+│   ├── bitmonero.log
+│   ├── lmdb
+│   │   ├── data.mdb
+│   │   └── lock.mdb
+│   └── p2pstate.bin
+├── node_03
+│   ├── bitmonero.log
+│   ├── lmdb
+│   │   ├── data.mdb
+│   │   └── lock.mdb
+│   └── p2pstate.bin
+├── wallet_01.bin
+├── wallet_01.bin.address.txt
+├── wallet_01.bin.keys
+├── wallet_02.bin
+├── wallet_02.bin.address.txt
+├── wallet_02.bin.keys
+├── wallet_03.bin
+├── wallet_03.bin.address.txt
+└── wallet_03.bin.keys
+
+6 directories, 21 files
+```
+
 ## Making transfers
 
 Mined blocked require confirmation of 60 blocks. So before you can make any transfers between the wallets, need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between
 wallets to be unlocked it takes 6 blocks.
-
-
 
 ## Example screenshots
 
