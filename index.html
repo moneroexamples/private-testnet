@@ -44,14 +44,12 @@ at the following three ports: 28080, 38080 and 48080.</p>
 </ul>
 
 <h2>
-<a id="step-1-create-testnet-wallets" class="anchor" href="#step-1-create-testnet-wallets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 1: Create testnet wallets.</h2>
+<a id="step-1-create-testnet-wallets" class="anchor" href="#step-1-create-testnet-wallets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 1: Create testnet wallets</h2>
 
 <p>Each of the nodes will have corresponding wallet. Thus we create them first. I assume that the wallets will be called <code>wallet_01.bin</code>,
 <code>wallet_02.bin</code> and <code>wallet_03.bin</code>. Also, I assume the wallets will be located in <code>~/testnet</code> folder.</p>
 
-<p>To create a testnet wallet use the following command, and follow the prompts to make the wallet.</p>
-
-<p>create the <code>~/testnet</code> and go into it:</p>
+<p>Create the <code>~/testnet</code> folder and go into it:</p>
 
 <div class="highlight highlight-source-shell"><pre>mkdir <span class="pl-k">~</span>/testnet <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> <span class="pl-k">~</span>/testnet</pre></div>
 
@@ -76,51 +74,60 @@ at the following three ports: 28080, 38080 and 48080.</p>
 <pre><code>9utaupAkugX7YEuGKL5LPeKD1TQHBYE7edEZXkEuFLirVNzcdf53WHWS3nUieF3vHeShTk6SqU5eSCce5W56mdcZHW67Cs3
 </code></pre>
 
-<p>Exit from the wallets before proceedings. We need only address for now.
-The <code>simplewallet</code> may crash as the blockchains are empty at this stage.
-We need to do mine something, before the wallets can be used.</p>
+<p>Exit from the wallets before proceedings. We need only addresses for now.
+The <code>simplewallet</code> may crash as the blockchain is empty at this stage.
+We need to mine some blocks, before the wallets can be used.</p>
 
 <h2>
-<a id="step-2-start-first-node" class="anchor" href="#step-2-start-first-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 2: Start first node.</h2>
+<a id="step-2-start-first-node" class="anchor" href="#step-2-start-first-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 2: Start first node</h2>
 
 <p>The node will listen for connections at port 28080 and connect to the two other nodes, i.e., those on ports 38080 and 48080. It will store its blockchain in <code>~/testnet/node_01</code>.</p>
 
 <div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir <span class="pl-k">~</span>/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080</pre></div>
 
 <h2>
-<a id="step-3-start-second-node" class="anchor" href="#step-3-start-second-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3: Start second node.</h2>
+<a id="step-3-start-second-node" class="anchor" href="#step-3-start-second-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3: Start second node</h2>
 
 <p>The node will listen for connections at port 38080 and connect to the two other nodes, i.e., those on ports 28080 and 48080. It will store its blockchain in <code>~/testnet/node_02</code>.</p>
 
 <div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 38080 --testnet-rpc-bind-port 38081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir <span class="pl-k">~</span>/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080</pre></div>
 
 <h2>
-<a id="step-4-start-third-node" class="anchor" href="#step-4-start-third-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4: Start third node.</h2>
+<a id="step-4-start-third-node" class="anchor" href="#step-4-start-third-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4: Start third node</h2>
 
 <p>The node will listen for connections at port 48080 and connect to the two other nodes, i.e., those on ports 28080 and 38080. It will store its blockchain in <code>~/testnet/node_03</code>.</p>
 
 <div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 48080 --testnet-rpc-bind-port 48081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir <span class="pl-k">~</span>/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080</pre></div>
 
 <h2>
-<a id="step-5-start-mining" class="anchor" href="#step-5-start-mining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5: Start mining.</h2>
+<a id="step-5-start-mining" class="anchor" href="#step-5-start-mining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5: Start mining</h2>
 
 <p>How you mine is up to you know. You can mine only for the first wallet, and keep other two empty for now,
 or mine in two nodes, or all three of them.</p>
 
-<p>For example, to mine in two first nodes to the respective wallets, the following commands can be used:</p>
+<p>For example, to mine in two first wallets, the following commands can be used:</p>
 
-<p>node_01:</p>
+<p>in node_01 (mining to the first wallet):</p>
 
 <pre><code>start_mining  9vcyth7idHcfGVripDeUJwQgjqyPYRbh2CMP9JudycTZGgot7tCp2o9aAsY9nUs9hLfoV3KQv59tE1hpZSpgTJXD9zVMHso 1
 </code></pre>
 
-<p>node_02:</p>
+<p>in node_02 (mining to the second wallet):</p>
 
 <pre><code>start_mining  9uKAVnkfhE9Ww8ZZ9nA8JYYeeXD4f1XgLbHtsoQ3fBKf8QPgv1jyrn5Xc5DHKm8epwWLhrFJnH2w712N9Tk8yRxpGqJgN4C 1
 </code></pre>
 
+<p>in node_03 (mining to the first wallet):</p>
+
+<pre><code>start_mining  9vcyth7idHcfGVripDeUJwQgjqyPYRbh2CMP9JudycTZGgot7tCp2o9aAsY9nUs9hLfoV3KQv59tE1hpZSpgTJXD9zVMHso 1
+</code></pre>
+
+<p>As can be seen, both node_01 and node_03 mine to the first wallet. The third wallet
+is not used for mining in this example. The reason is that it will receive xmr,
+through transfers, from the remaining wallets.</p>
+
 <h2>
-<a id="step-6-start-the-wallets" class="anchor" href="#step-6-start-the-wallets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6: Start the wallets.</h2>
+<a id="step-6-start-the-wallets" class="anchor" href="#step-6-start-the-wallets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6: Start the wallets</h2>
 
 <p>wallet_01:</p>
 
@@ -140,12 +147,20 @@ or mine in two nodes, or all three of them.</p>
 <h2>
 <a id="example-screenshots" class="anchor" href="#example-screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example screenshots</h2>
 
-<p>Before starting mining:
-<img src="https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_setup.jpg" alt="Before"></p>
+<p><strong>Commands used to start the nodes and wallets:</strong>
+<img src="https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_setup.jpg" alt="Before">
+The above image shows the command used for each node (left column) and wallets (right column).
+Each row represents one node with the corresponding wallet.</p>
 
-<p>After mining first few blocks:</p>
+<p><strong>After mining first 5 blocks:</strong>
+<img src="https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run.jpg" alt="After">
+The above image shows the state of the nodes and wallets after frist few blocks mined. We see
+that the first two wallets already have some xmr, but the <code>unlocked balance</code> values are zero. For them
+to unlock the mined xmr, we need to mine at least 60 blocks.</p>
 
-<p><img src="https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run.jpg" alt="After"></p>
+<p><strong>After mining first 60 blocks:</strong>
+<img src="https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run_60.jpg" alt="After60">
+After mining 60 blocks, the <code>unlocked balance</code> is no longer zero.</p>
 
 <h2>
 <a id="making-transfers" class="anchor" href="#making-transfers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making transfers</h2>
