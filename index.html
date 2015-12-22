@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Monero Examples</h1>
-      <h2 class="project-tagline">private-testnet</h2>
+      <h2 class="project-tagline">private-testnet-network</h2>
       <a href="https://github.com/moneroexamples/private-testnet" class="btn">View on GitHub</a>
       <a href="https://github.com/moneroexamples/private-testnet/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/moneroexamples/private-testnet/tarball/master" class="btn">Download .tar.gz</a>
@@ -20,7 +20,7 @@
 
     <section class="main-content">
       <h1>
-<a id="setting-private-monero-testnet" class="anchor" href="#setting-private-monero-testnet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting private monero testnet</h1>
+<a id="setting-private-monero-testnet-network" class="anchor" href="#setting-private-monero-testnet-network" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting private monero testnet network</h1>
 
 <p>Having private <a href="https://getmonero.org/">Monero</a> testnet network can be very useful, as you can play around
 with the monero without risking making expensive mistakes on real network. However,
@@ -85,6 +85,25 @@ We need to mine some blocks, before the wallets can be used.</p>
 
 <div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir <span class="pl-k">~</span>/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080</pre></div>
 
+<p>The <code>bitmonerod</code> options are:</p>
+
+<ul>
+<li>
+<em>testnet</em>   - Run on testnet. The wallet must be launched with --testnet flag.</li>
+<li>
+<em>no-igd</em>    - Disable UPnP port mapping.</li>
+<li>
+<em>hide-my-port</em> - Do not announce yourself as peerlist candidate.</li>
+<li>
+<em>testnet-data-dir</em> - Specify testnet data directory.</li>
+<li>
+<em>p2p-bind-ip</em> - Interface for p2p network protocol.</li>
+<li>
+<em>log-level</em>  - Log level.</li>
+<li>
+<em>add-exclusive-node</em> - Specify list of peers to connect to  only. If this option is given the options add-priority-node and seed-node are ignored.</li>
+</ul>
+
 <h2>
 <a id="step-3-start-second-node" class="anchor" href="#step-3-start-second-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3: Start second node</h2>
 
@@ -92,12 +111,24 @@ We need to mine some blocks, before the wallets can be used.</p>
 
 <div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 38080 --testnet-rpc-bind-port 38081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir <span class="pl-k">~</span>/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080</pre></div>
 
+<p>Additional <code>bitmonerod</code> options are:</p>
+
+<ul>
+<li>
+<em>testnet-p2p-bind-port</em> - Port for testnet p2p network protocol.</li>
+<li>
+<em>testnet-rpc-bind-port</em> - Port for testnet RPC server.<br>
+</li>
+</ul>
+
 <h2>
 <a id="step-4-start-third-node" class="anchor" href="#step-4-start-third-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4: Start third node</h2>
 
 <p>The node will listen for connections at port 48080 and connect to the two other nodes, i.e., those on ports 28080 and 38080. It will store its blockchain in <code>~/testnet/node_03</code>.</p>
 
 <div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 48080 --testnet-rpc-bind-port 48081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir <span class="pl-k">~</span>/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080</pre></div>
+
+<p><code>bitmonerod</code> options as before, but with different ports.</p>
 
 <h2>
 <a id="step-5-start-mining" class="anchor" href="#step-5-start-mining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5: Start mining</h2>
