@@ -148,7 +148,7 @@ wallet_03:
 
 ## Testnet folder structure
 
-
+The resulting `~/testnet` folder structure should be as follows:
 ```bash
 /home/mwo/testnet/
 ├── node_01
