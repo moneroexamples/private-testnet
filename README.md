@@ -38,7 +38,7 @@ For testnet network, I prefer to have fixed addresses for each wallet and withou
 The reason is that it is much easier to work with testnet wallets,
 if the addresses are fixed and there is no password.
 
-Execute the following commands to create three wallets without pass.
+Execute the following commands to create three wallets without password.
 
 **For wallet_01.bin:**
 ```bash
@@ -52,7 +52,7 @@ Resulting address:
 
 Now exit the wallet created using `exit` command. We need only addresses for now.
 The `simplewallet` may crash as the blockchain is empty at this stage.
-We need to mine some blocks, before the wallets can be used.
+We need to mine some blocks before the wallets can be used.
 
 **For wallet_02.bin:**
 ```bash
@@ -140,7 +140,7 @@ in node_02 (mining to the second wallet):
 start_mining  9wq792k9sxVZiLn66S3Qzv8QfmtcwkdXgM5cWGsXAPxoQeMQ79md51PLPCijvzk1iHbuHi91pws5B7iajTX9KTtJ4bh2tCh 1
 ```
 
-in node_03 (mining to the first wallet):
+in node_03 (mining to the first wallet as well):
 ```
 start_mining  9wviCeWe2D8XS82k2ovp5EUYLzBt9pYNW2LXUFsZiv8S3Mt21FZ5qQaAroko1enzw3eGr9qC7X1D7Geoo2RrAotYPwq9Gm8 1
 ```
@@ -229,8 +229,7 @@ alias teststartwallet3='/opt/bitmonero/simplewallet --testnet --daemon-port 4808
 
 ## Making transfers
 
-Mined blocked require confirmation of 60 blocks. So before you can make any transfers between the wallets, need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between
-wallets to be unlocked it takes 6 blocks.
+Mined blocked require confirmation of 60 blocks. So before you can make any transfers between the wallets, we need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between wallets to be unlocked it takes 6 blocks.
 
 ## Example screenshots
 
@@ -243,14 +242,15 @@ Each row represents one node with the corresponding wallet.
 
 **After mining first few blocks:**
 ![After](https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run.jpg)
-The above image shows the state of the nodes and wallets after frist few blocks mined. We see
+The above image shows the state of the nodes and wallets after first few blocks mined. We see
 that the first two wallets already have some xmr, but their `unlocked balance` values are zero. For them
 to unlock the mined xmr, we need to mine at least 60 blocks.
 
 
 **After mining first 60 blocks:**
 ![After60](https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run_60.jpg)
-After mining 60 blocks, the `unlocked balance` is no longer zero.
+After mining 60 blocks, the `unlocked balance` is no longer zero and we can start mining
+transfers between wallets.
 
 
 ## How can you help?
