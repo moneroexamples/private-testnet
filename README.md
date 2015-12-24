@@ -171,34 +171,34 @@ wallet_03:
 
 The resulting `~/testnet` folder structure should be as follows:
 ```bash
-/home/mwo/testnet/
+./testnet/
 ├── node_01
 │   ├── bitmonero.log
-│   ├── lmdb
-│   │   ├── data.mdb
-│   │   └── lock.mdb
-│   └── p2pstate.bin
+│   └── lmdb
+│       ├── data.mdb
+│       └── lock.mdb
 ├── node_02
 │   ├── bitmonero.log
-│   ├── lmdb
-│   │   ├── data.mdb
-│   │   └── lock.mdb
-│   └── p2pstate.bin
+│   └── lmdb
+│       ├── data.mdb
+│       └── lock.mdb
 ├── node_03
 │   ├── bitmonero.log
-│   ├── lmdb
-│   │   ├── data.mdb
-│   │   └── lock.mdb
-│   └── p2pstate.bin
+│   └── lmdb
+│       ├── data.mdb
+│       └── lock.mdb
 ├── wallet_01.bin
 ├── wallet_01.bin.address.txt
 ├── wallet_01.bin.keys
+├── wallet_01.log
 ├── wallet_02.bin
 ├── wallet_02.bin.address.txt
 ├── wallet_02.bin.keys
+├── wallet_02.log
 ├── wallet_03.bin
 ├── wallet_03.bin.address.txt
-└── wallet_03.bin.keys
+├── wallet_03.bin.keys
+└── wallet_03.log
 
 6 directories, 21 files
 ```
