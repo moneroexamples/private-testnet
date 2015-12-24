@@ -77,7 +77,7 @@ We need to mine some blocks before the wallets can be used.</p>
 
 <p><strong>For wallet_02.bin:</strong></p>
 
-<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/simplewallet --testnet --generate-new-wallet <span class="pl-k">~</span>/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed=<span class="pl-s"><span class="pl-pds">"</span>deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter<span class="pl-pds">"</span></span> --password <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> --log-file <span class="pl-k">~</span>/testnet/wallet_01.log</pre></div>
+<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/simplewallet --testnet --generate-new-wallet <span class="pl-k">~</span>/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed=<span class="pl-s"><span class="pl-pds">"</span>deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter<span class="pl-pds">"</span></span> --password <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> --log-file <span class="pl-k">~</span>/testnet/wallet_02.log</pre></div>
 
 <p>Resulting address:</p>
 
@@ -88,7 +88,7 @@ We need to mine some blocks before the wallets can be used.</p>
 
 <p><strong>For wallet_03.bin:</strong></p>
 
-<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/simplewallet --testnet --generate-new-wallet <span class="pl-k">~</span>/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed=<span class="pl-s"><span class="pl-pds">"</span>upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate<span class="pl-pds">"</span></span> --password <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> --log-file <span class="pl-k">~</span>/testnet/wallet_01.log</pre></div>
+<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/simplewallet --testnet --generate-new-wallet <span class="pl-k">~</span>/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed=<span class="pl-s"><span class="pl-pds">"</span>upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate<span class="pl-pds">"</span></span> --password <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> --log-file <span class="pl-k">~</span>/testnet/wallet_03.log</pre></div>
 
 <p>Resulting address:</p>
 
@@ -199,34 +199,34 @@ through transfers, from the remaining wallets.</p>
 
 <p>The resulting <code>~/testnet</code> folder structure should be as follows:</p>
 
-<div class="highlight highlight-source-shell"><pre>/home/mwo/testnet/
+<div class="highlight highlight-source-shell"><pre>./testnet/
 ├── node_01
 │   ├── bitmonero.log
-│   ├── lmdb
-│   │   ├── data.mdb
-│   │   └── lock.mdb
-│   └── p2pstate.bin
+│   └── lmdb
+│       ├── data.mdb
+│       └── lock.mdb
 ├── node_02
 │   ├── bitmonero.log
-│   ├── lmdb
-│   │   ├── data.mdb
-│   │   └── lock.mdb
-│   └── p2pstate.bin
+│   └── lmdb
+│       ├── data.mdb
+│       └── lock.mdb
 ├── node_03
 │   ├── bitmonero.log
-│   ├── lmdb
-│   │   ├── data.mdb
-│   │   └── lock.mdb
-│   └── p2pstate.bin
+│   └── lmdb
+│       ├── data.mdb
+│       └── lock.mdb
 ├── wallet_01.bin
 ├── wallet_01.bin.address.txt
 ├── wallet_01.bin.keys
+├── wallet_01.log
 ├── wallet_02.bin
 ├── wallet_02.bin.address.txt
 ├── wallet_02.bin.keys
+├── wallet_02.log
 ├── wallet_03.bin
 ├── wallet_03.bin.address.txt
-└── wallet_03.bin.keys
+├── wallet_03.bin.keys
+└── wallet_03.log
 
 6 directories, 21 files</pre></div>
 
@@ -273,9 +273,9 @@ The above image shows the state of the nodes and wallets after first few blocks 
 that the first two wallets already have some xmr, but their <code>unlocked balance</code> values are zero. For them
 to unlock the mined xmr, we need to mine at least 60 blocks.</p>
 
-<p><strong>After mining more than blocks:</strong>
+<p><strong>After mining more than 60 blocks:</strong>
 <img src="https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run_60.jpg" alt="After60">
-After mining more than 60 blocks (in this case 600 blocks), the <code>unlocked balance</code> is no longer zero
+After mining more than 60 blocks, the <code>unlocked balance</code> is no longer zero
 and we can start mining transfers between wallets.</p>
 
 <h2>
