@@ -247,9 +247,9 @@ that the first two wallets already have some xmr, but their `unlocked balance` v
 to unlock the mined xmr, we need to mine at least 60 blocks.
 
 
-**After mining more than blocks:**
+**After mining more than 60 blocks:**
 ![After60](https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_run_60.jpg)
-After mining more than 60 blocks (in this case 600 blocks), the `unlocked balance` is no longer zero
+After mining more than 60 blocks, the `unlocked balance` is no longer zero
 and we can start mining transfers between wallets.
 
 
