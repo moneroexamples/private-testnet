@@ -42,7 +42,7 @@ Execute the following commands to create three wallets without password.
 
 **For wallet_01.bin:**
 ```bash
-/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_01.bin  --restore-deterministic-wallet --electrum-seed="sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly" --password ""
+/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_01.bin  --restore-deterministic-wallet --electrum-seed="sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly" --password "" --log-file ~/testnet/wallet_01.log
 ```
 
 Resulting address:
@@ -56,7 +56,7 @@ We need to mine some blocks before the wallets can be used.
 
 **For wallet_02.bin:**
 ```bash
-/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password ""
+/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_01.log
 ```
 
 Resulting address:
@@ -68,7 +68,7 @@ Now exit the wallet created using `exit` command.
 
 **For wallet_03.bin:**
 ```bash
-/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password ""
+/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password "" --log-file ~/testnet/wallet_01.log
 ```
 
 Resulting address:
@@ -153,17 +153,17 @@ through transfers, from the remaining wallets.
 
 wallet_01:
 ```
-/opt/bitmonero/simplewallet --testnet --trusted-daemon --wallet-file ~/testnet/wallet_01.bin --password ""
+/opt/bitmonero/simplewallet --testnet --trusted-daemon --wallet-file ~/testnet/wallet_01.bin --password "" --log-file ~/testnet/wallet_01.log
 ```
 
 wallet_02:
 ```
-/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --wallet-file ~/testnet/wallet_02.bin --password ""
+/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log
 ```
 
 wallet_03:
 ```
-/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin --password ""
+/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log
 ```
 
 
@@ -208,11 +208,11 @@ The comments used are rather long, so to speed things up, one can make aliases
 for them. For example, by adding the following to `~/.bashrc`:
 
 ```bash
-alias testmakewallet1='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_01.bin  --restore-deterministic-wallet --electrum-seed="sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly" --password ""'
+alias testmakewallet1='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_01.bin  --restore-deterministic-wallet --electrum-seed="sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly" --password "" --log-file ~/testnet/wallet_01.log'
 
-alias testmakewallet2='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password ""'
+alias testmakewallet2='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_02.log'
 
-alias testmakewallet3='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password ""'
+alias testmakewallet3='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password "" --log-file ~/testnet/wallet_03.log'
 
 alias testnode1="/opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir ~/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080"
 
@@ -220,11 +220,11 @@ alias testnode2="/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 380
 
 alias testnode3="/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 48080 --testnet-rpc-bind-port 48081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir ~/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080"
 
-alias teststartwallet1='/opt/bitmonero/simplewallet --testnet --trusted-daemon --wallet-file ~/testnet/wallet_01.bin --password ""'
+alias teststartwallet1='/opt/bitmonero/simplewallet --testnet --trusted-daemon --wallet-file ~/testnet/wallet_01.bin --password "" --log-file ~/testnet/wallet_01.log'
 
-alias teststartwallet2='/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --wallet-file ~/testnet/wallet_02.bin --password ""'
+alias teststartwallet2='/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log'
 
-alias teststartwallet3='/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin --password ""'
+alias teststartwallet3='/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log'
 ```
 
 ## Making transfers
