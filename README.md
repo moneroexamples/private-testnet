@@ -1,7 +1,7 @@
 # Setting private Monero testnet network
 
 Having private [Monero](https://getmonero.org/) testnet network can be very useful, as you can play around
-with the monero without risking making expensive mistakes on real network. However,
+with Monero without risking making expensive mistakes on real network. However,
 it is not clear how to set up a private testnet network. In this example, this
 is demonstrated.
 
@@ -11,9 +11,9 @@ from 2014.  How to compile latest monero is shown here:
 [compile-monero-ubuntu-1510](http://moneroexamples.github.io/compile-monero-ubuntu-1510/).
 
 
-The testnet monero network will include 3 nodes, each with its own blockchain database
-and corresponding wallet on a single computer. The three testnet nodes will be listening
-at the following three ports: 28080, 38080 and 48080.
+The testnet Monero network will include 3 nodes, each with its own blockchain database
+and a corresponding wallet on a single computer. The three testnet nodes will be listening
+at the following ports 28080, 38080 and 48080, respectively.
 
 
 The example is based on the following reddit posts:
@@ -25,8 +25,10 @@ Also much thanks go to reddit's user [o--sensei](https://www.reddit.com/user/o--
 
 ## Step 1: Create testnet wallets
 
-Each of the nodes will have corresponding wallet. Thus we create them first. I assume that the wallets will be called `wallet_01.bin`,
-`wallet_02.bin` and `wallet_03.bin`. Also, I assume the wallets will be located in `~/testnet` folder.
+Each of the nodes will have a corresponding wallet. Thus we create the wallets first.
+I assume that the wallets will be called `wallet_01.bin`,
+`wallet_02.bin` and `wallet_03.bin`. Also, I assume that the wallets will be located
+in `~/testnet` folder.
 
 Create the `~/testnet` folder and go into it:
 
@@ -34,9 +36,8 @@ Create the `~/testnet` folder and go into it:
 mkdir ~/testnet && cd ~/testnet
 ```
 
-For testnet network, I prefer to have fixed addresses for each wallet and without password.
-The reason is that it is much easier to work with testnet wallets,
-if the addresses are fixed and there is no password.
+For testnet network, I prefer to have fixed addresses for each wallet and no password.
+The reason is that it is much easier to work with such testnet wallets.
 
 Execute the following commands to create three wallets without password.
 
@@ -54,6 +55,15 @@ Now exit the wallet created using `exit` command. We need only addresses for now
 The `simplewallet` may crash as the blockchain is empty at this stage.
 We need to mine some blocks before the wallets can be used.
 
+The `simplewallet` options are:
+
+ - *testnet*   - Used to deploy test nets. The daemon must be launched with --testnet flag.
+ - *generate-new-wallet*    - Generate new wallet and save it to <arg> or <address>.wallet by default.
+ - *restore-deterministic-wallet* - Recover wallet using electrum-stylemnemonic.
+ - *electrum-seed* - Specify electrum seed for wallet recovery/creation.
+ - *password* - Wallet password.
+ - *log-file*  - Specify log file.
+
 **For wallet_02.bin:**
 ```bash
 /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_02.log
@@ -65,6 +75,8 @@ Resulting address:
 ```
 
 Now exit the wallet created using `exit` command.
+
+The `simplewallet` options are as before.
 
 **For wallet_03.bin:**
 ```bash
@@ -78,6 +90,7 @@ A2rgGdM78JEQcxEUsi761WbnJWsFRCwh1PkiGtGnUUcJTGenfCr5WEtdoXezutmPiQMsaM4zJbpdH5PM
 
 Now exit the wallet created using `exit` command.
 
+The `simplewallet` options are as before.
 
 ## Step 2: Start first node
 
@@ -124,10 +137,10 @@ The node will listen for connections at port 48080 and connect to the two other 
 
 ## Step 5: Start mining
 
-How you mine is up to you know. You can mine only for the first wallet, and keep other two empty for now,
+How you mine is up to you now. You can mine only for the first wallet, and keep other two empty for now,
 or mine in two nodes, or all three of them.
 
-For example, to mine in two first wallets, the following commands can be used:
+For example, to mine into two first wallets, the following commands can be used:
 
 
 in node_01 (mining to the first wallet):
