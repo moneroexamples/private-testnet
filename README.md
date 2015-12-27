@@ -218,15 +218,13 @@ The resulting `~/testnet` folder structure should be as follows:
 
 ## Start nodes with mining
 
-Optionally, Nodes can be started so that the the mining starts as well. With this,
-there is no need for manually lauching mining in each node after it starts.
+Optionally, each node can be started so that it starts mining automatically. With this,
+there is no need for manually launching the mining operation in each node. It speeds
+up using using the testnet.
 
-For example, to start the three nodes so that they mine to first two wallets (like in step 5) :
-
+For example, to start the three nodes so that they mine into the first two wallets (like in step 5):
 
 in node_01 (mining to the first wallet):
-
-
 ```bash
 /opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir ~/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080 --start-mining 9wviCeWe2D8XS82k2ovp5EUYLzBt9pYNW2LXUFsZiv8S3Mt21FZ5qQaAroko1enzw3eGr9qC7X1D7Geoo2RrAotYPwq9Gm8 --mining-threads 1
 ```
@@ -236,12 +234,10 @@ in node_02 (mining to the second wallet):
 /opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 38080 --testnet-rpc-bind-port 38081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir ~/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080 --start-mining 9wq792k9sxVZiLn66S3Qzv8QfmtcwkdXgM5cWGsXAPxoQeMQ79md51PLPCijvzk1iHbuHi91pws5B7iajTX9KTtJ4bh2tCh --mining-threads 1
 ```
 
-
 in node_03 (mining to the first wallet as well):
 ```bash
 /opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 48080 --testnet-rpc-bind-port 48081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir ~/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080 --start-mining 9wviCeWe2D8XS82k2ovp5EUYLzBt9pYNW2LXUFsZiv8S3Mt21FZ5qQaAroko1enzw3eGr9qC7X1D7Geoo2RrAotYPwq9Gm8 --mining-threads 1
 ```
-
 
 ## Commands' aliases
 The comments used are rather long, so to speed things up, one can make aliases
