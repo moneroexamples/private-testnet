@@ -253,6 +253,26 @@ through transfers, from the remaining wallets.</p>
 6 directories, 21 files</pre></div>
 
 <h2>
+<a id="start-nodes-with-mining" class="anchor" href="#start-nodes-with-mining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Start nodes with mining</h2>
+
+<p>Optionally, Nodes can be started so that the the mining starts as well. With this,
+there is no need for manually lauching mining in each node after it starts.</p>
+
+<p>For example, to start the three nodes so that they mine to first two wallets (like in step 5) :</p>
+
+<p>in node_01 (mining to the first wallet):</p>
+
+<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir <span class="pl-k">~</span>/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080 --start-mining 9wviCeWe2D8XS82k2ovp5EUYLzBt9pYNW2LXUFsZiv8S3Mt21FZ5qQaAroko1enzw3eGr9qC7X1D7Geoo2RrAotYPwq9Gm8 --mining-threads 1</pre></div>
+
+<p>in node_02 (mining to the second wallet):</p>
+
+<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 38080 --testnet-rpc-bind-port 38081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir <span class="pl-k">~</span>/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080 --start-mining 9wq792k9sxVZiLn66S3Qzv8QfmtcwkdXgM5cWGsXAPxoQeMQ79md51PLPCijvzk1iHbuHi91pws5B7iajTX9KTtJ4bh2tCh --mining-threads 1</pre></div>
+
+<p>in node_03 (mining to the first wallet as well):</p>
+
+<div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 48080 --testnet-rpc-bind-port 48081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir <span class="pl-k">~</span>/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080 --start-mining 9wviCeWe2D8XS82k2ovp5EUYLzBt9pYNW2LXUFsZiv8S3Mt21FZ5qQaAroko1enzw3eGr9qC7X1D7Geoo2RrAotYPwq9Gm8 --mining-threads 1</pre></div>
+
+<h2>
 <a id="commands-aliases" class="anchor" href="#commands-aliases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commands' aliases</h2>
 
 <p>The comments used are rather long, so to speed things up, one can make aliases
@@ -269,6 +289,13 @@ for them. For example, by adding the following to <code>~/.bashrc</code>:</p>
 <span class="pl-c1">alias</span> testnode2=<span class="pl-s"><span class="pl-pds">"</span>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 38080 --testnet-rpc-bind-port 38081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir ~/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080<span class="pl-pds">"</span></span>
 
 <span class="pl-c1">alias</span> testnode3=<span class="pl-s"><span class="pl-pds">"</span>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 48080 --testnet-rpc-bind-port 48081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir ~/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080<span class="pl-pds">"</span></span>
+
+
+<span class="pl-c1">alias</span> testnode1andmine=<span class="pl-s"><span class="pl-pds">"</span>/opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir ~/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080 --start-mining 9wviCeWe2D8XS82k2ovp5EUYLzBt9pYNW2LXUFsZiv8S3Mt21FZ5qQaAroko1enzw3eGr9qC7X1D7Geoo2RrAotYPwq9Gm8 --mining-threads 1<span class="pl-pds">"</span></span>
+
+<span class="pl-c1">alias</span> testnode2andmine=<span class="pl-s"><span class="pl-pds">"</span>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 38080 --testnet-rpc-bind-port 38081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir ~/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080 --start-mining 9wq792k9sxVZiLn66S3Qzv8QfmtcwkdXgM5cWGsXAPxoQeMQ79md51PLPCijvzk1iHbuHi91pws5B7iajTX9KTtJ4bh2tCh --mining-threads 1<span class="pl-pds">"</span></span>
+
+<span class="pl-c1">alias</span> testnode3andmine=<span class="pl-s"><span class="pl-pds">"</span>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 48080 --testnet-rpc-bind-port 48081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir ~/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080 --start-mining 9wviCeWe2D8XS82k2ovp5EUYLzBt9pYNW2LXUFsZiv8S3Mt21FZ5qQaAroko1enzw3eGr9qC7X1D7Geoo2RrAotYPwq9Gm8 --mining-threads 1<span class="pl-pds">"</span></span>
 
 <span class="pl-c1">alias</span> teststartwallet1=<span class="pl-s"><span class="pl-pds">'</span>/opt/bitmonero/simplewallet --testnet --trusted-daemon --wallet-file ~/testnet/wallet_01.bin --password "" --log-file ~/testnet/wallet_01.log<span class="pl-pds">'</span></span>
 
