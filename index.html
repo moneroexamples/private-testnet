@@ -28,8 +28,7 @@ it is not clear how to set up a private testnet network. In this example, this
 is demonstrated.</p>
 
 <p>The example is executed on Xubuntu 15.10 x64 using current (as of Dec 2015)
-github version of Monero. Not sure if this will work with official, stable version
-from 2014.  How to compile latest monero is shown here:
+github version of Monero. How to compile latest monero is shown here:
 <a href="http://moneroexamples.github.io/compile-monero-ubuntu-1510/">compile-monero-ubuntu-1510</a>.</p>
 
 <p>The testnet Monero network will include 3 nodes, each with its own blockchain database
@@ -208,12 +207,12 @@ through transfers, from the remaining wallets.</p>
 
 <p>wallet_02:</p>
 
-<pre><code>/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log
+<pre><code>/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --trusted-daemon --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log
 </code></pre>
 
 <p>wallet_03:</p>
 
-<pre><code>/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log
+<pre><code>/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log
 </code></pre>
 
 <h2>
@@ -299,14 +298,14 @@ for them. For example, by adding the following to <code>~/.bashrc</code>:</p>
 
 <span class="pl-c1">alias</span> teststartwallet1=<span class="pl-s"><span class="pl-pds">'</span>/opt/bitmonero/simplewallet --testnet --trusted-daemon --wallet-file ~/testnet/wallet_01.bin --password "" --log-file ~/testnet/wallet_01.log<span class="pl-pds">'</span></span>
 
-<span class="pl-c1">alias</span> teststartwallet2=<span class="pl-s"><span class="pl-pds">'</span>/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log<span class="pl-pds">'</span></span>
+<span class="pl-c1">alias</span> teststartwallet2=<span class="pl-s"><span class="pl-pds">'</span>/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --trusted-daemon --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log<span class="pl-pds">'</span></span>
 
-<span class="pl-c1">alias</span> teststartwallet3=<span class="pl-s"><span class="pl-pds">'</span>/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log<span class="pl-pds">'</span></span></pre></div>
+<span class="pl-c1">alias</span> teststartwallet3=<span class="pl-s"><span class="pl-pds">'</span>/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log<span class="pl-pds">'</span></span></pre></div>
 
 <h2>
 <a id="making-transfers" class="anchor" href="#making-transfers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making transfers</h2>
 
-<p>Mined blocked require confirmation of 60 blocks. So before you can make any transfers between the wallets, we need to mine at least 60 blocks. Until then, the wallets will have <code>unlocked balance</code> equal to 0. In contrast, for regular transfers between wallets to be unlocked it takes 6 blocks.</p>
+<p>Newly mined blocks require confirmation of 60 blocks, before they can be used. So before you can make any transfers between the wallets, we need to mine at least 60 blocks. Until then, the wallets will have <code>unlocked balance</code> equal to 0. In contrast, for regular transfers between wallets to be unlocked it takes 6 blocks.</p>
 
 <h2>
 <a id="example-screenshots" class="anchor" href="#example-screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example screenshots</h2>
