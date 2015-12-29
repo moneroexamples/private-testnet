@@ -6,8 +6,7 @@ it is not clear how to set up a private testnet network. In this example, this
 is demonstrated.
 
 The example is executed on Xubuntu 15.10 x64 using current (as of Dec 2015)
-github version of Monero. Not sure if this will work with official, stable version
-from 2014.  How to compile latest monero is shown here:
+github version of Monero. How to compile latest monero is shown here:
 [compile-monero-ubuntu-1510](http://moneroexamples.github.io/compile-monero-ubuntu-1510/).
 
 
@@ -271,7 +270,7 @@ alias teststartwallet3='/opt/bitmonero/simplewallet --testnet --daemon-port 4808
 
 ## Making transfers
 
-Mined blocked require confirmation of 60 blocks. So before you can make any transfers between the wallets, we need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between wallets to be unlocked it takes 6 blocks.
+Newly mined blocks require confirmation of 60 blocks, before they can be used. So before you can make any transfers between the wallets, we need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between wallets to be unlocked it takes 6 blocks.
 
 ## Example screenshots
 
@@ -279,7 +278,6 @@ Mined blocked require confirmation of 60 blocks. So before you can make any tran
 ![Before](https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_setup.jpg)
 The above image shows the command used for each node (left column) and wallets (right column).
 Each row represents one node with the corresponding wallet.
-
 
 
 **After mining first few blocks:**
