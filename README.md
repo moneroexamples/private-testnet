@@ -171,12 +171,12 @@ wallet_01:
 
 wallet_02:
 ```
-/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log
+/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --trusted-daemon --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log
 ```
 
 wallet_03:
 ```
-/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log
+/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log
 ```
 
 
@@ -264,9 +264,9 @@ alias testnode3andmine="/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-p
 
 alias teststartwallet1='/opt/bitmonero/simplewallet --testnet --trusted-daemon --wallet-file ~/testnet/wallet_01.bin --password "" --log-file ~/testnet/wallet_01.log'
 
-alias teststartwallet2='/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log'
+alias teststartwallet2='/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --trusted-daemon --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log'
 
-alias teststartwallet3='/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log'
+alias teststartwallet3='/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log'
 ```
 
 ## Making transfers
