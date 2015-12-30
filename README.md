@@ -249,6 +249,9 @@ alias testmakewallet2='/opt/bitmonero/simplewallet --testnet --generate-new-wall
 
 alias testmakewallet3='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password "" --log-file ~/testnet/wallet_03.log'
 
+# additional alias for making random wallet_04
+alias testmakewallet4random='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_04.bin   --password "" --log-file ~/testnet/wallet_04.log'
+
 alias testnode1="/opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir ~/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080"
 
 alias testnode2="/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 38080 --testnet-rpc-bind-port 38081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir ~/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080"
@@ -266,6 +269,8 @@ alias teststartwallet1='/opt/bitmonero/simplewallet --testnet --trusted-daemon -
 alias teststartwallet2='/opt/bitmonero/simplewallet --testnet --daemon-port 38081 --trusted-daemon --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log'
 
 alias teststartwallet3='/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log'
+
+alias teststartwallet4='/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_04.bin --password "" --log-file ~/testnet/wallet_04.log'
 ```
 
 ## Making transfers
