@@ -50,7 +50,7 @@ Resulting address:
 9wviCeWe2D8XS82k2ovp5EUYLzBt9pYNW2LXUFsZiv8S3Mt21FZ5qQaAroko1enzw3eGr9qC7X1D7Geoo2RrAotYPwq9Gm8
 ```
 
-The command created a deterministic wallet and exits after its created. The reason is
+The command creates a deterministic wallet and exits after its created. The reason for exit is
 that `simplewallet` may crash if the blockchain is empty.
 
 The `simplewallet` options are:
