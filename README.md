@@ -42,7 +42,7 @@ Execute the following commands to create three wallets without password.
 
 **For wallet_01.bin:**
 ```bash
-/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_01.bin  --restore-deterministic-wallet --electrum-seed="sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly" --password "" --log-file ~/testnet/wallet_01.log
+echo "exit" | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_01.bin  --restore-deterministic-wallet --electrum-seed="sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly" --password "" --log-file ~/testnet/wallet_01.log;  echo ""
 ```
 
 Resulting address:
@@ -50,9 +50,8 @@ Resulting address:
 9wviCeWe2D8XS82k2ovp5EUYLzBt9pYNW2LXUFsZiv8S3Mt21FZ5qQaAroko1enzw3eGr9qC7X1D7Geoo2RrAotYPwq9Gm8
 ```
 
-Now exit the wallet created using `exit` command. We need only addresses for now.
-The `simplewallet` may crash as the blockchain is empty at this stage.
-We need to mine some blocks before the wallets can be used.
+The command created a deterministic wallet and exits after its created. The reason is
+that `simplewallet` may crash if the blockchain is empty.
 
 The `simplewallet` options are:
 
@@ -65,7 +64,7 @@ The `simplewallet` options are:
 
 **For wallet_02.bin:**
 ```bash
-/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_02.log
+echo "exit" | |/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_02.log;  echo ""
 ```
 
 Resulting address:
@@ -73,21 +72,17 @@ Resulting address:
 9wq792k9sxVZiLn66S3Qzv8QfmtcwkdXgM5cWGsXAPxoQeMQ79md51PLPCijvzk1iHbuHi91pws5B7iajTX9KTtJ4bh2tCh
 ```
 
-Now exit the wallet created using `exit` command.
-
 The `simplewallet` options are as before.
 
 **For wallet_03.bin:**
 ```bash
-/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password "" --log-file ~/testnet/wallet_03.log
+echo "exit" | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password "" --log-file ~/testnet/wallet_03.log;  echo ""
 ```
 
 Resulting address:
 ```
 A2rgGdM78JEQcxEUsi761WbnJWsFRCwh1PkiGtGnUUcJTGenfCr5WEtdoXezutmPiQMsaM4zJbpdH5PMjkCt7QrXAhV8wDB
 ```
-
-Now exit the wallet created using `exit` command.
 
 The `simplewallet` options are as before.
 
@@ -243,14 +238,16 @@ The comments used are rather long, so to speed things up, one can make aliases
 for them. For example, by adding the following to `~/.bashrc`:
 
 ```bash
-alias testmakewallet1='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_01.bin  --restore-deterministic-wallet --electrum-seed="sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly" --password "" --log-file ~/testnet/wallet_01.log'
+alias testmakewallet1='echo "exit" | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_01.bin  --restore-deterministic-wallet --electrum-seed="sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly" --password "" --log-file ~/testnet/wallet_01.log;  echo ""'
 
-alias testmakewallet2='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_02.log'
+alias testmakewallet2='echo "exit" | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_02.log;  echo ""'
 
-alias testmakewallet3='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password "" --log-file ~/testnet/wallet_03.log'
+alias testmakewallet3='echo "exit" | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password "" --log-file ~/testnet/wallet_03.log;  echo ""'
 
 # additional alias for making random wallet_04
-alias testmakewallet4random='/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_04.bin   --password "" --log-file ~/testnet/wallet_04.log'
+alias testmakewallet4='{ echo "0"; echo "exit"; } | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_04.bin   --password "" --log-file ~/testnet/wallet_04.log;  echo ""'
+
+alias testmakeallwallets="testmakewallet1; testmakewallet2; testmakewallet3; testmakewallet4"
 
 alias testnode1="/opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir ~/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080"
 
@@ -275,18 +272,19 @@ alias teststartwallet4='/opt/bitmonero/simplewallet --testnet --daemon-port 4808
 
 ## Commands' aliases (with rlwrap)
 As an alternative to the above aliases, the comamnds using `rlwrap` for having
-commands history and tab-compliton in the bitmonerod and simplewallet consoles
-are provided:
+commands history and tab-compliton in the `bitmonerod` and `simplewallet` consoles
+are provided. The `rlwrap` is not added for testmakewallet[1-4] aliases.
 
 ```bash
+alias testmakewallet1='echo "exit" | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_01.bin  --restore-deterministic-wallet --electrum-seed="sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly" --password "" --log-file ~/testnet/wallet_01.log;  echo ""'
 
-alias testmakewallet1='rlwrap -f ~/monerocommands_simplewallet.txt /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_01.bin  --restore-deterministic-wallet --electrum-seed="sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly" --password "" --log-file ~/testnet/wallet_01.log'
+alias testmakewallet2='echo "exit" | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_02.log;  echo ""'
 
-alias testmakewallet2='rlwrap -f ~/monerocommands_simplewallet.txt /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_02.log'
+alias testmakewallet3='echo "exit" | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password "" --log-file ~/testnet/wallet_03.log;  echo ""'
 
-alias testmakewallet3='rlwrap -f ~/monerocommands_simplewallet.txt /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password "" --log-file ~/testnet/wallet_03.log'
+alias testmakewallet4='{ echo "0"; echo "exit"; } | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_04.bin   --password "" --log-file ~/testnet/wallet_04.log;  echo ""'
 
-alias testmakewallet4random='rlwrap -f ~/monerocommands_simplewallet.txt -C wallet_03 /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_04.bin   --password "" --log-file ~/testnet/wallet_04.log'
+alias testmakeallwallets="testmakewallet1; testmakewallet2; testmakewallet3; testmakewallet4"
 
 alias testnode1='rlwrap -f ~/monerocommands_bitmonerod.txt /opt/bitmonero/bitmonerod --testnet --no-igd --hide-my-port --testnet-data-dir ~/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080'
 
