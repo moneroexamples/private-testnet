@@ -64,7 +64,7 @@ The `simplewallet` options are:
 
 **For wallet_02.bin:**
 ```bash
-echo "exit" | |/opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_02.log;  echo ""
+echo "exit" | /opt/bitmonero/simplewallet --testnet --generate-new-wallet ~/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed="deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter" --password "" --log-file ~/testnet/wallet_02.log;  echo ""
 ```
 
 Resulting address:
@@ -268,6 +268,10 @@ alias teststartwallet2='/opt/bitmonero/simplewallet --testnet --daemon-port 3808
 alias teststartwallet3='/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log'
 
 alias teststartwallet4='/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_04.bin --password "" --log-file ~/testnet/wallet_04.log'
+
+alias testremove="rm -rvf ~/testnet"
+
+alias testremoveandmkdir="rm -rvf ~/testnet; mkdir ~/testnet"
 ```
 
 ## Commands' aliases (with rlwrap)
@@ -305,6 +309,10 @@ alias teststartwallet2='rlwrap -f ~/monerocommands_simplewallet.txt /opt/bitmone
 alias teststartwallet3='rlwrap -f ~/monerocommands_simplewallet.txt /opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log'
 
 alias teststartwallet4='rlwrap -f ~/monerocommands_simplewallet.txt /opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_04.bin --password "" --log-file ~/testnet/wallet_04.log'
+
+alias testremove="rm -rvf ~/testnet"
+
+alias testremoveandmkdir="rm -rvf ~/testnet; mkdir ~/testnet"
 ```
 
 The files `monerocommands_bitmonerod.txt` and `monerocommands_simplewallet.txt` should be downloaded
