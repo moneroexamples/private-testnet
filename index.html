@@ -93,7 +93,7 @@ that <code>simplewallet</code> may crash if the blockchain is empty.</p>
 
 <p><strong>For wallet_02.bin:</strong></p>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>exit<span class="pl-pds">"</span></span> <span class="pl-k">|</span> <span class="pl-k">|</span>/opt/bitmonero/simplewallet --testnet --generate-new-wallet <span class="pl-k">~</span>/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed=<span class="pl-s"><span class="pl-pds">"</span>deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter<span class="pl-pds">"</span></span> --password <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> --log-file <span class="pl-k">~</span>/testnet/wallet_02.log<span class="pl-k">;</span>  <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>exit<span class="pl-pds">"</span></span> <span class="pl-k">|</span> /opt/bitmonero/simplewallet --testnet --generate-new-wallet <span class="pl-k">~</span>/testnet/wallet_02.bin  --restore-deterministic-wallet --electrum-seed=<span class="pl-s"><span class="pl-pds">"</span>deftly large tirade gumball android leech sidekick opened iguana voice gels focus poaching itches network espionage much jailed vaults winter oatmeal eleven science siren winter<span class="pl-pds">"</span></span> --password <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> --log-file <span class="pl-k">~</span>/testnet/wallet_02.log<span class="pl-k">;</span>  <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span></pre></div>
 
 <p>Resulting address:</p>
 
@@ -302,7 +302,11 @@ for them. For example, by adding the following to <code>~/.bashrc</code>:</p>
 
 <span class="pl-c1">alias</span> teststartwallet3=<span class="pl-s"><span class="pl-pds">'</span>/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log<span class="pl-pds">'</span></span>
 
-<span class="pl-c1">alias</span> teststartwallet4=<span class="pl-s"><span class="pl-pds">'</span>/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_04.bin --password "" --log-file ~/testnet/wallet_04.log<span class="pl-pds">'</span></span></pre></div>
+<span class="pl-c1">alias</span> teststartwallet4=<span class="pl-s"><span class="pl-pds">'</span>/opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_04.bin --password "" --log-file ~/testnet/wallet_04.log<span class="pl-pds">'</span></span>
+
+<span class="pl-c1">alias</span> testremove=<span class="pl-s"><span class="pl-pds">"</span>rm -rvf ~/testnet<span class="pl-pds">"</span></span>
+
+<span class="pl-c1">alias</span> testremoveandmkdir=<span class="pl-s"><span class="pl-pds">"</span>rm -rvf ~/testnet; mkdir ~/testnet<span class="pl-pds">"</span></span></pre></div>
 
 <h2>
 <a id="commands-aliases-with-rlwrap" class="anchor" href="#commands-aliases-with-rlwrap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commands' aliases (with rlwrap)</h2>
@@ -339,7 +343,11 @@ are provided. The <code>rlwrap</code> is not added for testmakewallet[1-4] alias
 
 <span class="pl-c1">alias</span> teststartwallet3=<span class="pl-s"><span class="pl-pds">'</span>rlwrap -f ~/monerocommands_simplewallet.txt /opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log<span class="pl-pds">'</span></span>
 
-<span class="pl-c1">alias</span> teststartwallet4=<span class="pl-s"><span class="pl-pds">'</span>rlwrap -f ~/monerocommands_simplewallet.txt /opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_04.bin --password "" --log-file ~/testnet/wallet_04.log<span class="pl-pds">'</span></span></pre></div>
+<span class="pl-c1">alias</span> teststartwallet4=<span class="pl-s"><span class="pl-pds">'</span>rlwrap -f ~/monerocommands_simplewallet.txt /opt/bitmonero/simplewallet --testnet --daemon-port 48081 --wallet-file ~/testnet/wallet_04.bin --password "" --log-file ~/testnet/wallet_04.log<span class="pl-pds">'</span></span>
+
+<span class="pl-c1">alias</span> testremove=<span class="pl-s"><span class="pl-pds">"</span>rm -rvf ~/testnet<span class="pl-pds">"</span></span>
+
+<span class="pl-c1">alias</span> testremoveandmkdir=<span class="pl-s"><span class="pl-pds">"</span>rm -rvf ~/testnet; mkdir ~/testnet<span class="pl-pds">"</span></span></pre></div>
 
 <p>The files <code>monerocommands_bitmonerod.txt</code> and <code>monerocommands_simplewallet.txt</code> should be downloaded
 and placed in your home folder for the above aliases to work.</p>
