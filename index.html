@@ -20,16 +20,19 @@
 
     <section class="main-content">
       <h1>
-<a id="setting-private-monero-testnet-network" class="anchor" href="#setting-private-monero-testnet-network" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting private Monero testnet network</h1>
+<a id="setting-private-monero-testnet-network" class="anchor" href="#setting-private-monero-testnet-network" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setting private Monero testnet network</h1>
 
 <p>Having private <a href="https://getmonero.org/">Monero</a> testnet network can be very useful, as you can play around
 with Monero without risking making expensive mistakes on real network. However,
 it is not clear how to set up a private testnet network. In this example, this
 is demonstrated.</p>
 
-<p>The example is executed on Xubuntu 15.10 x64 using Monero 0.9.
-How to compile latest monero is shown here:
-<a href="http://moneroexamples.github.io/compile-monero-ubuntu-1510/">compile-monero-ubuntu-1510</a>.</p>
+<p>The example was executed on Xubuntu 15.10 x64 using Monero 0.9.
+Instructions on how to compile Monero are avaliable here:
+<a href="https://github.com/moneroexamples/compile-monero-09-on-ubuntu">compile-monero-09-on-ubuntu</a>.</p>
+
+<h2>
+<a id="testnet-network" class="anchor" href="#testnet-network" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testnet network</h2>
 
 <p>The testnet Monero network will include 3 nodes, each with its own blockchain database
 and a corresponding wallet on a single computer. The three testnet nodes will be listening
@@ -46,7 +49,7 @@ at the following ports 28080, 38080 and 48080, respectively.</p>
   help with setting up the initial testnet network.</p>
 
 <h2>
-<a id="step-1-create-testnet-wallets" class="anchor" href="#step-1-create-testnet-wallets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 1: Create testnet wallets</h2>
+<a id="step-1-create-testnet-wallets" class="anchor" href="#step-1-create-testnet-wallets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1: Create testnet wallets</h2>
 
 <p>Each of the nodes will have a corresponding wallet. Thus we create the wallets first.
 I assume that the wallets will be called <code>wallet_01.bin</code>,
@@ -57,7 +60,7 @@ in <code>~/testnet</code> folder.</p>
 
 <div class="highlight highlight-source-shell"><pre>mkdir <span class="pl-k">~</span>/testnet <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> <span class="pl-k">~</span>/testnet</pre></div>
 
-<p>For testnet network, I prefer to have fixed addresses for each wallet and no password.
+<p>For the testnet network, I prefer to have fixed addresses for each wallet and no password.
 The reason is that it is much easier to work with such testnet wallets.</p>
 
 <p>Execute the following commands to create three wallets without password.</p>
@@ -78,7 +81,7 @@ that <code>simplewallet</code> may crash if the blockchain is empty.</p>
 
 <ul>
 <li>
-<em>testnet</em>   - Used to deploy test nets. The daemon must be launched with --testnet flag.</li>
+<em>testnet</em>   - Used to deploy testnets. The daemon must be launched with --testnet flag.</li>
 <li>
 <em>generate-new-wallet</em>    - Generate new wallet and save it to  or  .wallet by default. </li>
 <li>
@@ -114,7 +117,7 @@ that <code>simplewallet</code> may crash if the blockchain is empty.</p>
 <p>The <code>simplewallet</code> options are as before.</p>
 
 <h2>
-<a id="step-2-start-first-node" class="anchor" href="#step-2-start-first-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 2: Start first node</h2>
+<a id="step-2-start-first-node" class="anchor" href="#step-2-start-first-node" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2: Start first node</h2>
 
 <p>The node will listen for connections at port 28080 and connect to the two other nodes, i.e., those on ports 38080 and 48080. It will store its blockchain in <code>~/testnet/node_01</code>.</p>
 
@@ -140,7 +143,7 @@ that <code>simplewallet</code> may crash if the blockchain is empty.</p>
 </ul>
 
 <h2>
-<a id="step-3-start-second-node" class="anchor" href="#step-3-start-second-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3: Start second node</h2>
+<a id="step-3-start-second-node" class="anchor" href="#step-3-start-second-node" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3: Start second node</h2>
 
 <p>The node will listen for connections at port 38080 and connect to the two other nodes, i.e., those on ports 28080 and 48080. It will store its blockchain in <code>~/testnet/node_02</code>.</p>
 
@@ -157,7 +160,7 @@ that <code>simplewallet</code> may crash if the blockchain is empty.</p>
 </ul>
 
 <h2>
-<a id="step-4-start-third-node" class="anchor" href="#step-4-start-third-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4: Start third node</h2>
+<a id="step-4-start-third-node" class="anchor" href="#step-4-start-third-node" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4: Start third node</h2>
 
 <p>The node will listen for connections at port 48080 and connect to the two other nodes, i.e., those on ports 28080 and 38080. It will store its blockchain in <code>~/testnet/node_03</code>.</p>
 
@@ -166,7 +169,7 @@ that <code>simplewallet</code> may crash if the blockchain is empty.</p>
 <p><code>bitmonerod</code> options as before, but with different ports.</p>
 
 <h2>
-<a id="step-5-start-mining" class="anchor" href="#step-5-start-mining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5: Start mining</h2>
+<a id="step-5-start-mining" class="anchor" href="#step-5-start-mining" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5: Start mining</h2>
 
 <p>How you mine is up to you now. You can mine only for the first wallet, and keep other two empty for now,
 or mine in two nodes, or all three of them.</p>
@@ -193,7 +196,7 @@ is not used for mining in this example. The reason is that it will receive xmr,
 through transfers, from the remaining wallets.</p>
 
 <h2>
-<a id="step-6-start-the-wallets" class="anchor" href="#step-6-start-the-wallets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6: Start the wallets</h2>
+<a id="step-6-start-the-wallets" class="anchor" href="#step-6-start-the-wallets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 6: Start the wallets</h2>
 
 <p>wallet_01:</p>
 
@@ -211,7 +214,7 @@ through transfers, from the remaining wallets.</p>
 </code></pre>
 
 <h2>
-<a id="testnet-folder-structure" class="anchor" href="#testnet-folder-structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testnet folder structure</h2>
+<a id="testnet-folder-structure" class="anchor" href="#testnet-folder-structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testnet folder structure</h2>
 
 <p>The resulting <code>~/testnet</code> folder structure should be as follows:</p>
 
@@ -247,7 +250,7 @@ through transfers, from the remaining wallets.</p>
 6 directories, 21 files</pre></div>
 
 <h2>
-<a id="start-nodes-with-mining" class="anchor" href="#start-nodes-with-mining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Start nodes with mining</h2>
+<a id="start-nodes-with-mining" class="anchor" href="#start-nodes-with-mining" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start nodes with mining</h2>
 
 <p>Optionally, each node can be started so that it starts mining automatically. With this,
 there is no need for manually launching the mining operation in each node. It speeds
@@ -268,7 +271,7 @@ up using using the testnet.</p>
 <div class="highlight highlight-source-shell"><pre>/opt/bitmonero/bitmonerod --testnet --testnet-p2p-bind-port 48080 --testnet-rpc-bind-port 48081 --no-igd --hide-my-port  --log-level 1 --testnet-data-dir <span class="pl-k">~</span>/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080 --start-mining 9wviCeWe2D8XS82k2ovp5EUYLzBt9pYNW2LXUFsZiv8S3Mt21FZ5qQaAroko1enzw3eGr9qC7X1D7Geoo2RrAotYPwq9Gm8 --mining-threads 1</pre></div>
 
 <h2>
-<a id="commands-aliases" class="anchor" href="#commands-aliases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commands' aliases</h2>
+<a id="commands-aliases" class="anchor" href="#commands-aliases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Commands' aliases</h2>
 
 <p>The comments used are rather long, so to speed things up, one can make aliases
 for them. For example, by adding the following to <code>~/.bashrc</code>:</p>
@@ -309,7 +312,7 @@ for them. For example, by adding the following to <code>~/.bashrc</code>:</p>
 <span class="pl-c1">alias</span> testremoveandmkdir=<span class="pl-s"><span class="pl-pds">"</span>rm -rvf ~/testnet; mkdir ~/testnet<span class="pl-pds">"</span></span></pre></div>
 
 <h2>
-<a id="commands-aliases-with-rlwrap" class="anchor" href="#commands-aliases-with-rlwrap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commands' aliases (with rlwrap)</h2>
+<a id="commands-aliases-with-rlwrap" class="anchor" href="#commands-aliases-with-rlwrap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Commands' aliases (with rlwrap)</h2>
 
 <p>As an alternative to the above aliases, the comamnds using <code>rlwrap</code> for having
 commands history and tab-compliton in the <code>bitmonerod</code> and <code>simplewallet</code> consoles
@@ -357,12 +360,12 @@ wget https://raw.githubusercontent.com/moneroexamples/compile-monero-ubuntu/mast
 wget https://raw.githubusercontent.com/moneroexamples/compile-monero-ubuntu/master/monerocommands_simplewallet.txt</pre></div>
 
 <h2>
-<a id="making-transfers" class="anchor" href="#making-transfers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making transfers</h2>
+<a id="making-transfers" class="anchor" href="#making-transfers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Making transfers</h2>
 
 <p>Newly mined blocks require confirmation of 60 blocks, before they can be used. So before you can make any transfers between the wallets, we need to mine at least 60 blocks. Until then, the wallets will have <code>unlocked balance</code> equal to 0. In contrast, for regular transfers between wallets to be unlocked it takes 6 blocks.</p>
 
 <h2>
-<a id="example-screenshots" class="anchor" href="#example-screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example screenshots</h2>
+<a id="example-screenshots" class="anchor" href="#example-screenshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example screenshots</h2>
 
 <p><strong>Commands used to start the nodes and wallets:</strong>
 <img src="https://raw.githubusercontent.com/moneroexamples/private-testnet/master/img/testnet_setup.jpg" alt="Before">
@@ -381,7 +384,7 @@ After mining more than 60 blocks, the <code>unlocked balance</code> is no longer
 and we can start mining transfers between wallets.</p>
 
 <h2>
-<a id="how-can-you-help" class="anchor" href="#how-can-you-help" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can you help?</h2>
+<a id="how-can-you-help" class="anchor" href="#how-can-you-help" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How can you help?</h2>
 
 <p>Constructive criticism, code and website edits are always good. They can be made through github.</p>
 
