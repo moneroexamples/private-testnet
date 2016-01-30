@@ -5,10 +5,11 @@ with Monero without risking making expensive mistakes on real network. However,
 it is not clear how to set up a private testnet network. In this example, this
 is demonstrated.
 
-The example is executed on Xubuntu 15.10 x64 using Monero 0.9.
-How to compile latest monero is shown here:
-[compile-monero-ubuntu-1510](http://moneroexamples.github.io/compile-monero-ubuntu-1510/).
+The example was executed on Xubuntu 15.10 x64 using Monero 0.9.
+Instructions on how to compile Monero are avaliable here:
+[compile-monero-09-on-ubuntu](https://github.com/moneroexamples/compile-monero-09-on-ubuntu).
 
+## Testnet network
 
 The testnet Monero network will include 3 nodes, each with its own blockchain database
 and a corresponding wallet on a single computer. The three testnet nodes will be listening
@@ -35,7 +36,7 @@ Create the `~/testnet` folder and go into it:
 mkdir ~/testnet && cd ~/testnet
 ```
 
-For testnet network, I prefer to have fixed addresses for each wallet and no password.
+For the testnet network, I prefer to have fixed addresses for each wallet and no password.
 The reason is that it is much easier to work with such testnet wallets.
 
 Execute the following commands to create three wallets without password.
@@ -55,7 +56,7 @@ that `simplewallet` may crash if the blockchain is empty.
 
 The `simplewallet` options are:
 
- - *testnet*   - Used to deploy test nets. The daemon must be launched with --testnet flag.
+ - *testnet*   - Used to deploy testnets. The daemon must be launched with --testnet flag.
  - *generate-new-wallet*    - Generate new wallet and save it to <arg> or <address>.wallet by default.
  - *restore-deterministic-wallet* - Recover wallet using electrum-stylemnemonic.
  - *electrum-seed* - Specify electrum seed for wallet recovery/creation.
