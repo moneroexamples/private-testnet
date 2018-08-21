@@ -219,10 +219,10 @@ Newly mined blocks require confirmation of 60 blocks, before they can be used. S
 
 Can use [onion-monero-blockchain-explorer from devel branch](https://github.com/moneroexamples/onion-monero-blockchain-explorer/commits/devel).
 
-For example:
+For example, I use the explorer in the following way:
 
 ```bash
-./xmrblocks -t -b /home/mwo/testnet/node_01/testnet/lmdb/
+./xmrblocks -t -b /home/mwo/testnet/node_01/testnet/lmdb/ --no-blocks-on-index 50 --enable-as-hex  --enable-pusher
 ```
 
 and go to http://127.0.0.1:8081/ .
