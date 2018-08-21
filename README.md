@@ -215,6 +215,18 @@ The resulting `~/testnet` folder structure should be as follows:
 
 Newly mined blocks require confirmation of 60 blocks, before they can be used. So before you can make any transfers between the wallets, we need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between wallets to be unlocked it takes 6 blocks.
 
+## Private testnet blockchain explorer
+
+Can use [onion-monero-blockchain-explorer from devel branch](https://github.com/moneroexamples/onion-monero-blockchain-explorer/commits/devel).
+
+For example:
+
+```bash
+./xmrblocks -t -b /home/mwo/testnet/node_01/testnet/lmdb/
+```
+
+and go to http://127.0.0.1:8081/ .
+
 
 ## How can you help?
 
