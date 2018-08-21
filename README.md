@@ -5,9 +5,6 @@ with Monero without risking making expensive mistakes on real network. However,
 it is not clear how to set up a private testnet network. In this example, this
 is demonstrated.
 
-The example was executed on Xubuntu 16.04 x64 using Monero 0.10.1.
-Instructions on how to compile Monero are avaliable here:
-[compile-monero-09-on-ubuntu](https://github.com/moneroexamples/compile-monero-09-on-ubuntu).
 
 ## Testnet network
 
