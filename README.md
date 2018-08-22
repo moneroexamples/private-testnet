@@ -5,12 +5,49 @@ with Monero without risking making expensive mistakes on real network. However,
 it is not clear how to set up a private testnet network. In this example, this
 is demonstrated.
 
+## Pre-requsits
+
+The instructions below have been prepared
+based on Monero v0.12.3.
 
 ## Testnet network
 
 The testnet Monero network will include 3 nodes, each with its own blockchain database
 and a corresponding wallet on a single computer. The three testnet nodes will be listening
-at the following ports 28080, 38080 and 48080, respectively.
+at the following ports 28080, 38080 and 48080, respectively. As a result, testnet folder structure will be following:
+
+```bash
+./testnet/
+├── node_01
+│   ├── bitmonero.log
+│   └── lmdb
+│       ├── data.mdb
+│       └── lock.mdb
+├── node_02
+│   ├── bitmonero.log
+│   └── lmdb
+│       ├── data.mdb
+│       └── lock.mdb
+├── node_03
+│   ├── bitmonero.log
+│   └── lmdb
+│       ├── data.mdb
+│       └── lock.mdb
+├── wallet_01.bin
+├── wallet_01.bin.address.txt
+├── wallet_01.bin.keys
+├── wallet_01.log
+├── wallet_02.bin
+├── wallet_02.bin.address.txt
+├── wallet_02.bin.keys
+├── wallet_02.log
+├── wallet_03.bin
+├── wallet_03.bin.address.txt
+├── wallet_03.bin.keys
+└── wallet_03.log
+
+6 directories, 21 files
+```
 
 
 The example is based on the following reddit posts:
@@ -51,18 +88,8 @@ Resulting address and seed:
 sequence atlas unveil summon pebbles tuesday beer rudely snake rockets different fuselage woven tagged bested dented vegan hover rapid fawns obvious muppet randomly seasons randomly
 ```
 
-
 The command creates a deterministic wallet and exits after its created. The reason for exit is
 that `monero-wallet-cli` may crash if the blockchain is empty.
-
-The `monero-wallet-cli` options are:
-
- - *testnet*   - Used to deploy testnets. The daemon must be launched with --testnet flag.
- - *generate-new-wallet*    - Generate new wallet and save it to <arg> or <address>.wallet by default.
- - *restore-deterministic-wallet* - Recover wallet using electrum-stylemnemonic.
- - *electrum-seed* - Specify electrum seed for wallet recovery/creation.
- - *password* - Wallet password.
- - *log-file*  - Specify log file.
 
 **For wallet_02.bin:**
 ```bash
@@ -92,25 +119,15 @@ upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yo
 
 ## Step 2: Start first node
 
-The node will listen for connections at port 28080 and connect to the two other nodes, i.e., those on ports 38080 and 48080. It will store its blockchain in `~/testnet/node_01`. We are going to set fixed difficult at 100. You can change it to whatever siuts you. This way we can keep mining blocks faster.
+The node will listen for connections at port 28080 and connect to the two other nodes, i.e., those on ports 38080 and 48080. It will store its blockchain in `~/testnet/node_01`. We are going to set fixed mining difficult at 100. You can change it to whatever suits you. This way we can keep mining blocks faster.
 
 ```bash
 monerod --testnet  --no-igd --hide-my-port --data-dir ~/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 0 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080  --fixed-difficulty 100
 ```
 
-The `monerod` options are:
-
- - *testnet*   - Run on testnet. The wallet must be launched with --testnet flag.
- - *no-igd*    - Disable UPnP port mapping.
- - *hide-my-port* - Do not announce yourself as peerlist candidate.
- - *data-dir* - Specify testnet data directory.
- - *p2p-bind-ip* - Interface for p2p network protocol.
- - *log-level*  - Log level.
- - *add-exclusive-node* - Specify list of peers to connect to  only. If this option is given the options add-priority-node and seed-node are ignored.
-
 ## Step 3: Start second node
 
-The node will listen for connections at port 38080 and connect to the two other nodes, i.e., those on ports 28080 and 48080. It will store its blockchain in `~/testnet/node_02`. We set difficult as for the first node. 
+The node will listen for connections at port 38080 and connect to the two other nodes, i.e., those on ports 28080 and 48080. It will store its blockchain in `~/testnet/node_02`. We set difficult as for the first node.
 
 ```bash
 monerod --testnet --p2p-bind-port 38080 --rpc-bind-port 38081 --zmq-rpc-bind-port 38082 --no-igd --hide-my-port  --log-level 0 --data-dir ~/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080 --fixed-difficulty 100
@@ -175,60 +192,28 @@ wallet_03:
 monero-wallet-cli --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log
 ```
 
-## Testnet folder structure
-
-The resulting `~/testnet` folder structure should be as follows:
-```bash
-./testnet/
-├── node_01
-│   ├── bitmonero.log
-│   └── lmdb
-│       ├── data.mdb
-│       └── lock.mdb
-├── node_02
-│   ├── bitmonero.log
-│   └── lmdb
-│       ├── data.mdb
-│       └── lock.mdb
-├── node_03
-│   ├── bitmonero.log
-│   └── lmdb
-│       ├── data.mdb
-│       └── lock.mdb
-├── wallet_01.bin
-├── wallet_01.bin.address.txt
-├── wallet_01.bin.keys
-├── wallet_01.log
-├── wallet_02.bin
-├── wallet_02.bin.address.txt
-├── wallet_02.bin.keys
-├── wallet_02.log
-├── wallet_03.bin
-├── wallet_03.bin.address.txt
-├── wallet_03.bin.keys
-└── wallet_03.log
-
-6 directories, 21 files
-```
 
 ## Making transfers
 
-Newly mined blocks require confirmation of 60 blocks, before they can be used. So before you can make any transfers between the wallets, we need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between wallets to be unlocked it takes 6 blocks.
+Newly mined blocks require confirmation of 60 blocks, before they can be used. So before you can make any transfers between the wallets, we need to mine at least 60 blocks. Until then, the wallets will have `unlocked balance` equal to 0. In contrast, for regular transfers between wallets to be unlocked it takes 10 blocks.
 
 ## Private testnet blockchain explorer
 
-Can use [onion-monero-blockchain-explorer from devel branch](https://github.com/moneroexamples/onion-monero-blockchain-explorer/commits/devel).
+The [onion-monero-blockchain-explorer from devel branch](https://github.com/moneroexamples/onion-monero-blockchain-explorer/commits/devel)can be used for exploring the private blockchain.
 
 For example, I use the explorer in the following way:
 
 ```bash
-./xmrblocks -t -b /home/mwo/testnet/node_01/testnet/lmdb/ --no-blocks-on-index 50 --enable-as-hex  --enable-pusher
+./xmrblocks -t -p 9999 -b /home/mwo/testnet/node_01/testnet/lmdb/ --no-blocks-on-index 50 --enable-as-hex  --enable-pusher
 ```
 
-and go to http://127.0.0.1:8081/ .
+and go to http://127.0.0.1:9999/ .
 
+## tmux session
+
+The tmux script to automatically launch the three nodes and wallets,
+and the explorer is here.
 
 ## How can you help?
 
 Constructive criticism, code and website edits are always good. They can be made through github.
-
