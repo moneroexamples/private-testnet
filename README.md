@@ -179,17 +179,17 @@ through transfers, from the remaining wallets.
 
 wallet_01:
 ```
-monero-wallet-cli --testnet --trusted-daemon --wallet-file ~/testnet/wallet_01.bin --password "" --log-file ~/testnet/wallet_01.log
+monero-wallet-cli --testnet --trusted-daemon --wallet-file ~/testnet/wallet_01.bin --password '' --log-file ~/testnet/wallet_01.log
 ```
 
 wallet_02:
 ```
-monero-wallet-cli --testnet --daemon-port 38081 --trusted-daemon --wallet-file ~/testnet/wallet_02.bin --password "" --log-file ~/testnet/wallet_02.log
+monero-wallet-cli --testnet --daemon-port 38081 --trusted-daemon --wallet-file ~/testnet/wallet_02.bin --password '' --log-file ~/testnet/wallet_02.log
 ```
 
 wallet_03:
 ```
-monero-wallet-cli --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/testnet/wallet_03.bin --password "" --log-file ~/testnet/wallet_03.log
+monero-wallet-cli --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/testnet/wallet_03.bin --password '' --log-file ~/testnet/wallet_03.log
 ```
 
 
@@ -199,7 +199,7 @@ Newly mined blocks require confirmation of 60 blocks, before they can be used. S
 
 ## Private testnet blockchain explorer
 
-The [onion-monero-blockchain-explorer from devel branch](https://github.com/moneroexamples/onion-monero-blockchain-explorer/commits/devel)can be used for exploring the private blockchain.
+The [onion-monero-blockchain-explorer from devel branch](https://github.com/moneroexamples/onion-monero-blockchain-explorer/commits/devel) can be used for exploring the private blockchain.
 
 For example, I use the explorer in the following way:
 
@@ -216,4 +216,4 @@ and the explorer is [here](https://github.com/moneroexamples/private-testnet/blo
 
 ## How can you help?
 
-Constructive criticism, code and website edits are always good. They can be made through github.
+Constructive criticism, code and issues are always welcomed. They can be made through github.
