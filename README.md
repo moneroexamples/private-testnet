@@ -133,12 +133,6 @@ The node will listen for connections at port 38080 and connect to the two other 
 monerod --testnet --p2p-bind-port 38080 --rpc-bind-port 38081 --zmq-rpc-bind-port 38082 --no-igd --hide-my-port  --log-level 0 --data-dir ~/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080 --fixed-difficulty 100
 ```
 
-Additional `monerod` options are:
-
- - *testnet-p2p-bind-port* - Port for testnet p2p network protocol.
- - *testnet-rpc-bind-port* - Port for testnet RPC server.    
-
-
 ## Step 4: Start third node
 
 The node will listen for connections at port 48080 and connect to the two other nodes, i.e., those on ports 28080 and 38080. It will store its blockchain in `~/testnet/node_03`. We set difficult as for the first node.
@@ -211,7 +205,7 @@ and go to http://127.0.0.1:9999/ .
 
 ## tmux session
 
-The tmux script to automatically launch the three nodes and wallets,
+The tmux script to automatically start the three nodes and wallets,
 and the explorer is [here](https://github.com/moneroexamples/private-testnet/blob/master/tmux-privatexmr.sh).
 
 ## How can you help?
