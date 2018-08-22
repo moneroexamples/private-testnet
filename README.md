@@ -212,7 +212,7 @@ and go to http://127.0.0.1:9999/ .
 ## tmux session
 
 The tmux script to automatically launch the three nodes and wallets,
-and the explorer is here.
+and the explorer is [here](https://github.com/moneroexamples/private-testnet/blob/master/tmux-privatexmr.sh).
 
 ## How can you help?
 
