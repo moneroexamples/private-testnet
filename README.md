@@ -5,10 +5,11 @@ with Monero without risking making expensive mistakes on real network. However,
 it is not clear how to set up a private testnet network. In this example, this
 is demonstrated.
 
-## Pre-requsits
+## Prerequisite
 
 The instructions below have been prepared
-based on Monero v0.12.3.
+based on Monero v0.12.3 on Arch Linux. However, they should network
+with other distros.
 
 ## Testnet network
 
@@ -206,7 +207,7 @@ and go to http://127.0.0.1:9999/ .
 ## tmux session
 
 The tmux script to automatically start the three nodes and wallets,
-and the explorer is [here](https://github.com/moneroexamples/private-testnet/blob/master/tmux-privatexmr.sh).
+and the explorer is [here](https://github.com/moneroexamples/private-testnet/blob/master/tmux-privatexmr.sh). It assumes that the private testnet nodes and wallets are in `~/testnet/` and the onion explorer executable `xmrblocks` is in `~/onion-monero-blockchain-explorer/build/'.
 
 ## How can you help?
 
