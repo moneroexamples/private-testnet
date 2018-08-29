@@ -34,3 +34,7 @@ monero-wallet-cli --$NETTYPE --trusted-daemon --wallet-file ~/$NETTYPE/wallet_01
 monero-wallet-cli --$NETTYPE --daemon-port 38081 --trusted-daemon --wallet-file ~/$NETTYPE/wallet_02.bin --password '' --log-file ~/$NETTYPE/wallet_02.log
 
 monero-wallet-cli --testnet --daemon-port 48081 --trusted-daemon --wallet-file ~/$NETTYPE/wallet_03.bin --password '' --log-file ~/$NETTYPE/wallet_03.log
+
+# onion explorer
+
+./xmrblocks -t -p 9999 -b /home/mwo/$NETTYPE/node_01/testnet/lmdb/ --no-blocks-on-index 50 --enable-as-hex  --enable-pusher
