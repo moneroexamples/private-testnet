@@ -9,5 +9,6 @@ alias pnode1="monerod --$NETTYPE  --no-igd --hide-my-port --data-dir ~/$NETTYPE/
 alias pwallet1="monero-wallet-cli --$NETTYPE --trusted-daemon --wallet-file ~/$NETTYPE/wallet_01.bin --password '' --log-file ~/$NETTYPE/wallet_01.log"
 alias pwallet2="monero-wallet-cli --$NETTYPE --trusted-daemon --wallet-file ~/$NETTYPE/wallet_02.bin --password '' --log-file ~/$NETTYPE/wallet_02.log"
 alias pwallet3="monero-wallet-cli --$NETTYPE --trusted-daemon --wallet-file ~/$NETTYPE/wallet_03.bin --password '' --log-file ~/$NETTYPE/wallet_03.log"
+alias pwallet4="monero-wallet-cli --$NETTYPE --trusted-daemon --wallet-file ~/$NETTYPE/wallet_04.bin --password '' --log-file ~/$NETTYPE/wallet_04.log"
 
-echo "private stagenet pnode1 pwallet1 pwallet2 and pwallet3 aliases avaliable now"
+echo "private stagenet pnode1 pwallet1 to pwallet4 aliases avaliable now"

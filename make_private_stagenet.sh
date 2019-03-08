@@ -22,6 +22,10 @@ echo "" | monero-wallet-cli --$NETTYPE --generate-new-wallet ~/$NETTYPE/wallet_0
 # 5BXAsDboVYEQcxEUsi761WbnJWsFRCwh1PkiGtGnUUcJTGenfCr5WEtdoXezutmPiQMsaM4zJbpdH5PMjkCt7QrXAbj3Qrc
 echo "" | monero-wallet-cli --$NETTYPE --generate-new-wallet ~/$NETTYPE/wallet_03.bin  --restore-deterministic-wallet --electrum-seed="upstairs arsenic adjust emulate karate efficient demonstrate weekday kangaroo yoga huts seventh goes heron sleepless fungal tweezers zigzags maps hedgehog hoax foyer jury knife karate" --password "" --log-file ~/$NETTYPE/wallet_03.log;
 
+# 55hKAMnUWXaWXd4hUQ9jzQDF3sL7Yu7fML5FpWMFMouUXjxxK2y6oKJYtEf91Vf3ZGaPE6cHccRnbV5q96uC3ChmCKyGuXY 
+echo "" | monero-wallet-cli --$NETTYPE --generate-new-wallet ~/$NETTYPE/wallet_04.bin  --restore-deterministic-wallet --electrum-seed="kitchens easy focus sipped tagged roles pool tilt remedy coexist taboo lucky sneeze guest woven coal anybody colony unbending bacon iceberg worry exult bubble tilt" --password "" --log-file ~/$NETTYPE/wallet_04.log;
+
+
 # stare private nodes
 
 monerod --$NETTYPE  --no-igd --hide-my-port --data-dir ~/$NETTYPE/node_01 --p2p-bind-ip 127.0.0.1 --log-level 0 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080  --fixed-difficulty $DIFFICULT
