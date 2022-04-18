@@ -13,17 +13,17 @@ cd ~/testnet
 # nodes window
 
 # start node_01 (initial session)
-tmux new-session -d -s $SN -n nodes -- sh -ic 'echo node_01 && monerod --testnet  --no-igd --hide-my-port --data-dir ~/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 0 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080  --fixed-difficulty 100 || read WHATEVER'
+tmux new-session -d -s $SN -n nodes -- sh -ic 'echo node_01 && monerod --testnet  --no-igd --hide-my-port --data-dir ~/testnet/node_01 --p2p-bind-ip 127.0.0.1 --log-level 0 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080  --fixed-difficulty 100 --disable-rpc-ban || read WHATEVER'
 
 # start node_02
 tmux split-window -dv
 tmux select-pane -t 1
 #tmux send-keys  "cd ~/onion-monero-blockchain-explorer/build && sleep 20  && startxmrblocksmainet" C-m
-tmux split-window -dh      -- sh -ic 'echo node_02 && monerod --testnet --p2p-bind-port 38080 --rpc-bind-port 38081 --zmq-rpc-bind-port 38082 --no-igd --hide-my-port  --log-level 0 --data-dir ~/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080 --fixed-difficulty 100 || read WHATEVER'
+tmux split-window -dh      -- sh -ic 'echo node_02 && monerod --testnet --p2p-bind-port 38080 --rpc-bind-port 38081 --zmq-rpc-bind-port 38082 --no-igd --hide-my-port  --log-level 0 --data-dir ~/testnet/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080 --fixed-difficulty 100 --disable-rpc-ban || read WHATEVER'
 
 # start node_03
 tmux select-pane -t 3
-tmux split-window -dh      -- sh -ic 'echo node_03 && monerod --testnet --p2p-bind-port 48080 --rpc-bind-port 48081 --zmq-rpc-bind-port 48082 --no-igd --hide-my-port  --log-level 0 --data-dir ~/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080 --fixed-difficulty 100 || read WHATEVER'
+tmux split-window -dh      -- sh -ic 'echo node_03 && monerod --testnet --p2p-bind-port 48080 --rpc-bind-port 48081 --zmq-rpc-bind-port 48082 --no-igd --hide-my-port  --log-level 0 --data-dir ~/testnet/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080 --fixed-difficulty 100 --disable-rpc-ban || read WHATEVER'
 
 
 # wallets window
