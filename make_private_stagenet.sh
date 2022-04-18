@@ -28,11 +28,11 @@ echo "" | monero-wallet-cli --$NETTYPE --generate-new-wallet ~/$NETTYPE/wallet_0
 
 # stare private nodes
 
-monerod --$NETTYPE  --no-igd --hide-my-port --data-dir ~/$NETTYPE/node_01 --p2p-bind-ip 127.0.0.1 --log-level 0 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080  --fixed-difficulty $DIFFICULT
+monerod --$NETTYPE  --no-igd --hide-my-port --data-dir ~/$NETTYPE/node_01 --p2p-bind-ip 127.0.0.1 --log-level 0 --add-exclusive-node 127.0.0.1:38080 --add-exclusive-node 127.0.0.1:48080  --fixed-difficulty $DIFFICULT --disable-rpc-ban
 
-monerod --$NETTYPE --p2p-bind-port 38080 --rpc-bind-port 38081 --zmq-rpc-bind-port 38082 --no-igd --hide-my-port  --log-level 0 --data-dir ~/$NETTYPE/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080 --fixed-difficulty $DIFFICULT
+monerod --$NETTYPE --p2p-bind-port 38080 --rpc-bind-port 38081 --zmq-rpc-bind-port 38082 --no-igd --hide-my-port  --log-level 0 --data-dir ~/$NETTYPE/node_02 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:48080 --fixed-difficulty $DIFFICULT --disable-rpc-ban
 
-monerod --$NETTYPE --p2p-bind-port 48080 --rpc-bind-port 48081 --zmq-rpc-bind-port 48082 --no-igd --hide-my-port  --log-level 0 --data-dir ~/$NETTYPE/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080 --fixed-difficulty $DIFFICULT
+monerod --$NETTYPE --p2p-bind-port 48080 --rpc-bind-port 48081 --zmq-rpc-bind-port 48082 --no-igd --hide-my-port  --log-level 0 --data-dir ~/$NETTYPE/node_03 --p2p-bind-ip 127.0.0.1 --add-exclusive-node 127.0.0.1:28080 --add-exclusive-node 127.0.0.1:38080 --fixed-difficulty $DIFFICULT --disable-rpc-ban
 
 # open private wallets
 
